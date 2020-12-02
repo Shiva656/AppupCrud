@@ -25,17 +25,7 @@
         <div class="row">
           <div v-for="(value, key) in data" :key="key" :class="'col-md-' + cardClass + ' mb-4'">
               <b-card  class="shadow-none border-0  mb-0">
-              <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
-                  <div class="card-body p-0">
-                      <!-- Body -->
-                      <p class="mt-3">
-                          Finish the design for blog listings and articles, including mixed media
-                      </p>
-                      <p class="card-text small text-muted d-flex align-items-center">
-                          <i class="fe fe-message-circle mr-2"></i> {{ value.name }}
-                          <i class="fe fe-clock ml-4 mr-2"></i> Sep 9
-                      </p>
-                  </div>
+              <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
             </b-card>
           </div>
         </div>
@@ -46,11 +36,13 @@
 </template>
 <script>
 import { getData } from '../js/global';
+import SimpleCard from './Crud-Simple-Card'
 import GroupedCard from '../Appup Components/ac-collection-grouped';
 
 export default {
   components: {
-    'ac-collection-grouped': GroupedCard
+    'ac-collection-grouped': GroupedCard,
+    SimpleCard
   },
   props: ['entity', 'finalCondition', 'templateParams', 'blockParams', 'componentName', 'collection'],
   data () {
@@ -83,7 +75,7 @@ export default {
 
   methods: {
     dropdownClick: function (data) {
-      this.$emit('option_select', data.item.item ? data.item.item : data.item, data.type, data.index, data.option);
+      this.$emit('option_select', { item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index, option: data.option });
     },
     bulkCheck: function (data) {
       this.$emit('check_value', data);
