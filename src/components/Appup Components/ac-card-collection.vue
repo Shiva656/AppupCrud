@@ -40,7 +40,8 @@
           <b-row>
             <!-- <b-col v-for="(item,index) in data" :key="index" :class="response_class" :md="column_size"> -->
             <b-col v-for="(item,index) in actual_data" :key="index" :class="response_class">
-              <div class="card mb-0 card-head-bg w-100" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
+              <div class="card mb-0 card-head-bg w-100 card-header-flush" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
+               <div class="d-flex align-items-center card-header card-header-flush">
                 <slot name="option" :data="{item:item,index:index}">
                   <ac-material-dropdown
                     v-if="show_dropdown"
@@ -65,6 +66,7 @@
                   </template>
                   <slot name="card_header" :item="item"></slot>
                 </div>
+               </div>
                 <!-- Use this slot for each card body-->
                 <slot name="card_body" :item="item"></slot>
                 <!-- Use this slot for each card footer-->

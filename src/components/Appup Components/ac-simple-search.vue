@@ -1,12 +1,6 @@
 <template>
   <div>
-    <b-input-group>
-      <b-input
-        v-model="searchValue"
-        :placeholder="placeholder"
-        @keypress.enter="searchResults"
-        @keyup='$emit("keyup", $event)'
-      />
+    <b-input-group class="input-group-flush input-group-merge">
       <b-input-group-append
         is-text
         v-if="search_symbol"
@@ -14,11 +8,18 @@
         v-b-tooltip.hover
         :title="(show_tooltip)?tooltip_message:''"
       >
-        <i class="fal fa-search" @click="onInput"></i>
+        <i class="fe fe-search" @click="onInput"></i>
       </b-input-group-append>
-      <b-input-group-append v-else v-b-tooltip.hover :title="(show_tooltip)?tooltip_message:''">
+       <b-input-group-append v-else v-b-tooltip.hover :title="(show_tooltip)?tooltip_message:''">
         <b-button variant="outline-secondary" @click="onInput">search</b-button>
       </b-input-group-append>
+      <b-input
+        v-model="searchValue"
+        class="form-control-prepended search"
+        :placeholder="placeholder"
+        @keypress.enter="searchResults"
+        @keyup='$emit("keyup", $event)'
+      />
     </b-input-group>
   </div>
 </template>

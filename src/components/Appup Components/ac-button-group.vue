@@ -9,7 +9,6 @@
           :variant="item.variant"
           :class="(index == current_Index) ?'active':''"
           :text="item.name"
-          class="btn-sm"
           v-if="(item.type !== 'undefined' && item.type === 'dropdown') ||
        ( item.type === 'undefined' &&  item.items !== 'undefined')"
         >
@@ -29,6 +28,7 @@
           :key="index"
           :id="item.name+'tooltip'"
           :variant="item.variant"
+          class="ml-3"
           :class="(index == current_Index) ?'active':''"
           :href="item.url"
           @click="event_emitter(item,$event, index)"

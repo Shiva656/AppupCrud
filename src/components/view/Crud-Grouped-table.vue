@@ -8,6 +8,7 @@
       :dropdown_options="collection.dropdownOptions"
       :dropdown_button_options="collection.buttonOptions"
       :bulk="blockParams.b"
+      header_class=''
       :url="url"
       v-if='url'
       :method="collection.method"
