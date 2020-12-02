@@ -13,11 +13,19 @@
         <!-- <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search> -->
         <div>
           <b-button-group class="ml-3 nav d-inline-flex">
+<<<<<<< HEAD
           <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" v-for="item in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
             <span class="fe fe-menu" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></span>
             <span class="fe fe-grid" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></span>
             <span class="fe fe-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></span>
             <span class="fe fe-list" v-if="item == 'v-kanban'"></span>
+=======
+          <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" :class='index==0?"active":""' v-for="(item,index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
+            <i class="far fa-bars" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></i>
+            <i class="fas fa-th-large" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></i>
+            <i class="fa fa-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></i>
+            <i class="far fa-th" v-if="item == 'v-kanban'"></i>
+>>>>>>> 54bc28dcd6b459c26e6b2c9bbd084aa6080350d5
           </b-button>
           </b-button-group>
         </div>
@@ -64,6 +72,7 @@ export default {
     console.log('crud', CrudJson);
     this.filter();
     this.componentName = this.blocks[0];
+    this.previousId = this.componentName;
     this.componentRef = this.blocks[0] + '-ref';
     this.componentParams = this.blockDetails[0].blockParams;
     this.$set(this.collection, 'dropdownOptions', this.dropdown);
@@ -88,6 +97,7 @@ export default {
       getUrl: '',
       verticalKey: '',
       filterKey: '',
+      previousId: '',
       count: 0,
       searchColumn: this.templateParams.sk,
       componentRef: '',
@@ -113,11 +123,18 @@ export default {
   },
   methods: {
     toggle: function (value) {
+      const btn = document.getElementById(value + '-id');
+      btn.classList.add('active');
       this.componentName = value;
       this.componentRef = value + '-ref';
       this.componentParams = this.blockDetails.find(item => {
         return item.block === value;
       }).blockParams;
+      if (this.previousId !== value) {
+        const btn = document.getElementById(this.previousId + '-id');
+        btn.classList.remove('active');
+      }
+      this.previousId = value;
       this.bulkHide();
     },
     /*

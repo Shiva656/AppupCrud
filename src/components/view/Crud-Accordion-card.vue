@@ -5,7 +5,7 @@
       <template v-slot:body="{ data }" class="item">
         <div v-for="(value, key) in data" :key="key" class="mb-2">
           <b-card class="h-100 shadow-sm">
-             <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
+             <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
           </b-card>
         </div>
       </template>
