@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ac-simple-card :data="item.item" :dropdown_options="collection.dropdownOptions" url="" :dropdown_button_options="collection.buttonOptions" card_title="hello" @dropdown_click="dropdownClick" :bulk="bulk" @input="bulkMethod">
+    <ac-simple-card :data="item.item" :dropdown_options="collection.dropdownOptions" url="" :dropdown_button_options="collection.buttonOptions" card_title="hello" @dropdown_click="dropdownClick" :bulk="blockParams.b" @input="bulkMethod">
       <template #hover>
         <div class="hover-div">HOVER</div>
       </template>
@@ -33,7 +33,6 @@ export default {
     return {
       cardClass: 'col-md-12 md-12',
       card_id: [],
-      bulk: this.blockParams.b
     };
   },
   watch: {
@@ -42,7 +41,7 @@ export default {
         this.item = after;
       },
       deep: true,
-    },
+    }
   },
   mounted () {
     console.log('simple card')
