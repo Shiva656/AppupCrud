@@ -7,7 +7,6 @@ import { genericHandlers } from '../../genericshandlers';
 import crudJson from './crud'
 import moment from 'moment';
 import 'moment-timezone';
-// Import AcExcelTable from '@appup/appup-components-dynamic/components/ac-excel-table';
 window.moment = moment;
 const Dynamic = {};
 const AppupControls = {};
@@ -54,7 +53,5 @@ for (var keys in crudJson.templateParams) {
 // For modal in crud component
 CrudJson.CrudModal = () => import(/* webpackChunkName: "c-b" */ '../view/View-Modal');
 CrudJson.CrudBulk = () => import(/* webpackChunkName: "c-b" */ '../view/Crud-Bulk');
-console.log('componentObj', CrudJson);
-console.log('appup', Dynamic);
-console.log('AppupControls', AppupControls);
+console.log('componentObj', CrudJson, Dynamic, AppupControls);
 export { AppupControls, Dynamic, CrudJson }

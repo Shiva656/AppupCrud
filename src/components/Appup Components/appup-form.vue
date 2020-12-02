@@ -889,13 +889,23 @@ import AppupTinymce from './Form Components/appup-tinymce.vue';
 import AppupRadio from './Form Components/appup-radio.vue';
 import AppupCheckBox from './Form Components/appup-checkbox.vue';
 import AcSwitchButton from './Form Components/ac-swich-button.vue';
+import AppupTags from './Form Components/appup-tags'
 import AppupSelect from './Form Components/appup-select.vue';
 import AcDropdown from './Form Components/ac-dropdown.vue';
 import AppupMultiSelect from './Form Components/appup-multiselect.vue'
 import AppupTypeAhead from './Form Components/appup-typeahead.vue'
 import AcCanvas from './Form Components/ac-canvas';
 import AcHtml from './Form Components/ac-html'
-import AcHelperForm from './Form Components/ac-helper-form'
+import AcHelperForm from './Form Components/ac-helper-form';
+import AppupSection from './Form Components/appup-section';
+import AppupUpload from './Form Components/appup-upload';
+import AcDualList from './Form Components/ac-dual-list';
+import AcSwatches from './Form Components/ac-swatches';
+import AcDateRangePicker from './Form Components/ac-date-range-picker';
+import AcEmailBuilder from './/Form Components/ac-email-builder'
+// Import AppupWorkflow from './Form Components/appup-workflow'
+// Import AppupMergeFields from './Form Components/appup-merge-fields';
+import Appupfile from './Form Components/appup-file'
 // eslint-disable-next-line no-unused-vars
 import Vue from 'vue';
 import { codemirror } from 'vue-codemirror';
@@ -913,17 +923,27 @@ export default {
     'ac-switch-button': AcSwitchButton,
     'appup-select': AppupSelect,
     'ac-dropdown': AcDropdown,
+    //  'appup-merge-fields': AppupMergeFields,
     'appup-multiselect': AppupMultiSelect,
     'appup-typeahead': AppupTypeAhead,
     'ac-canvas': AcCanvas,
     'ac-html': AcHtml,
     'ac-helper-form': AcHelperForm,
+    'appup-tags': AppupTags,
+    'appup-file': Appupfile,
+    'appup-section': AppupSection,
+    'ac-swatches': AcSwatches,
+    'appup-upload': AppupUpload,
+    'ac-date-range-picker': AcDateRangePicker,
+    'ac-email-builder': AcEmailBuilder,
+    // 'appup-workflow': AppupWorkflow,
     appupDesigner,
     // eslint-disable-next-line vue/no-unused-components
     appupBuildly,
     'appup-alert': AppupAlert,
     'appup-datetime': AppupDateTime,
     'appup-checkbox': AppupCheckBox,
+    'ac-dual-list': AcDualList,
     // eslint-disable-next-line vue/no-unused-components
     appupMockly,
     codemirror
