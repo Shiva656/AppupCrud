@@ -1,0 +1,3188 @@
+{
+    "fields": [
+        {
+            "id": "type",
+            "type": "dropdown",
+            "name": "type",
+            "label": "Field Type",
+            "option": [
+                {
+                    "value": null,
+                    "label": "select field type",
+                    "checked": true
+                },
+                {
+                    "value": "text",
+                    "label": "Text"
+                },
+                {
+                    "value": "email",
+                    "label": "Email"
+                },
+                {
+                    "value": "password",
+                    "label": "Password"
+                },
+                {
+                    "value": "number",
+                    "label": "Number"
+                },
+                {
+                    "value": "textarea",
+                    "label": "Textarea"
+                },
+                {
+                    "value": "dropdown",
+                    "label": "Dropdown"
+                },
+                {
+                    "value": "multiselect",
+                    "label": "Multiselect"
+                },
+                {
+                    "value": "tags",
+                    "label": "Tags"
+                },
+                {
+                    "value": "checkbox",
+                    "label": "Checkbox"
+                },
+                {
+                    "value": "radio",
+                    "label": "Radio"
+                },
+                {
+                    "value": "date",
+                    "label": "Date"
+                },
+                {
+                    "value": "time",
+                    "label": "Time"
+                },
+                {
+                    "value": "datetime",
+                    "label": "Datetime"
+                },
+                {
+                    "value": "daterange",
+                    "label": "Daterange"
+                },
+                {
+                    "value": "quilljs",
+                    "label": "Quilljs"
+                },
+                {
+                    "value": "code-editor",
+                    "label": "Code-editor"
+                },
+                {
+                    "value": "workflow",
+                    "label": "Workflow"
+                },
+                {
+                    "value": "typeahead",
+                    "label": "Typeahead"
+                },
+                {
+                    "value": "file",
+                    "label": "File"
+                },
+                {
+                    "value": "html",
+                    "label": "Html"
+                },
+                {
+                    "value": "upload",
+                    "label": "Upload"
+                },
+                {
+                    "value": "hidden",
+                    "label": "Hidden"
+                },
+                {
+                    "value": "grid",
+                    "label": "Grid"
+                },
+                {
+                    "value": "dual-list",
+                    "label": "Dual-list"
+                },
+                {    
+                    "value":"excel-table",
+                    "label":"Excel-table"
+                },
+                {
+                    "value": "swatches",
+                    "label": "Swatches"
+                },
+                {
+                    "value": "date-range",
+                    "label": "Date-range"
+                },
+                {
+                    "value": "form",
+                    "label": "Form"
+                },
+                {
+                    "value": "switch",
+                    "label": "Switch"
+                },
+                {
+                    "value": "section",
+                    "label": "Section"
+                },
+                {
+                    "value": "form-builder",
+                    "label": "Form Builder"
+                },
+                {
+                    "value": "canvas",
+                    "label": "Canvas"
+                },
+                {
+                    "value": "template-render",
+                    "label": "Template-render"
+                },
+                {
+                    "value": "ac-dropdown",
+                    "label": "Ac-dropdown"
+                },
+                {
+                    "value": "designer",
+                    "label": "Designer"
+                },
+                {
+                    "value":"copy-code",
+                    "label":"Copy-code"
+                },
+                {
+                    "value":"email-builder",
+                    "label":"Email-builder"
+                }
+            ],
+            "required": true,
+            "tab-order": "1"
+        },
+        {
+            "id": "input",
+            "type": "grid",
+            "label": "Input Event",
+            "name": "event.input",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'multiselect' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea' || this.form.type == 'radio' || this.form.type == 'checkbox' || this.form.type == 'dropdown' || this.form.type == 'file' || this.form.type == 'date' || this.form.type == 'time' || this.form.type == 'datetime' || this.form.type == 'daterange' || this.form.type == 'swatches' || this.form.type=='switch'"
+        },
+        {
+            "id": "deleteAndInsert",
+            "type": "grid",
+            "label": "Delete and Insert Event",
+            "name": "event.deleteAndInsert",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'dual-list'"
+        },
+        {
+            "id": "change",
+            "type": "grid",
+            "name": "event.change",
+            "label": "Change Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea' || this.form.type == 'dropdown' || this.form.type == 'file'|| this.form.type=='switch' || this.form.type == 'date'|| this.form.type == 'time'|| this.form.type == 'datetime'|| this.form.type == 'daterange'"
+        },
+        {
+            "id": "focus",
+            "type": "grid",
+            "name": "event.focus",
+            "label": "Focus Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea'"
+        },
+        {
+            "id": "date-range-selected",
+            "type": "grid",
+            "name": "event.date-range-selected",
+            "label": "Range selected Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'date-range'"
+        },
+        {
+            "id": "blur",
+            "type": "grid",
+            "name": "event.blur",
+            "label": "Blur Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea'"
+        },
+        {
+            "id": "keydown",
+            "type": "grid",
+            "name": "event.keydown",
+            "label": "Keydown Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea'"
+        },
+        {
+            "id": "keyup",
+            "type": "grid",
+            "name": "event.keyup",
+            "label": "Keyup Event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' ||this.form.type == 'password' || this.form.type =='textarea'"
+        },
+        {
+            "id": "remove",
+            "type": "grid",
+            "name": "event.remove",
+            "label": "Remove event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'typeahead'"
+        },
+        {
+            "id": "d_item_clicked",
+            "type": "grid",
+            "name": "event.d_item_clicked",
+            "label": "Dropdown Item Click",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'ac-dropdown' "
+        },
+        {
+            "id": "action",
+            "type": "grid",
+            "name": "event.action",
+            "label": "action icon event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null"
+        },
+        {
+            "id": "event_test",
+            "type": "grid",
+            "name": "event.event_test",
+            "label": "Dropdown Click",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'"
+        },
+        {
+            "id": "share",
+            "type": "grid",
+            "name": "event.share",
+            "label": "share event for code",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'copy-code'"
+        },
+        {
+            "id": "drag_drop",
+            "type": "grid",
+            "name": "event.drag_drop",
+            "label": "Drag Drop",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'section'"
+        },
+        {
+            "id": "select",
+            "type": "grid",
+            "name": "event.select",
+            "label": "Select event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "Events",
+            "tab-order": "3",
+            "condition": "this.form.type != null && this.form.type == 'typeahead'"
+        },
+        {
+            "id": "computation",
+            "type": "text",
+            "name": "computation",
+            "label": "computation",
+            "required": false,
+            "placeholder": "Enter Computation for the Field Value",
+            "condition": "this.form.type != null  && this.form.type != 'grid' && this.form.type != 'html'",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "condition",
+            "type": "text",
+            "name": "condition",
+            "label": "Condition",
+            "required": false,
+            "placeholder": "Enter Condition for the Field",
+            "condition": "this.form.type != null  && this.form.type != 'grid' && this.form.type != 'html'",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "disabled",
+            "type": "dropdown",
+            "name": "disabled",
+            "label": "Disabled",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type != 'html'",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "show_info_icon",
+            "type": "dropdown",
+            "name": "show_info_icon",
+            "label": "Show Info Icon",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "placeholder": "If true display info icon beside the label",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "info_icon_text",
+            "type": "textarea",
+            "name": "info_icon_text",
+            "label": "Info Tooltip Text",
+            "required": false,
+            "placeholder": "write info tooltip text",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "show_action_icon",
+            "type": "dropdown",
+            "name": "show_action_icon",
+            "label": "Show Action Icon",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "placeholder": "If true display action icon and emit event",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "action_icon_class",
+            "type": "text",
+            "name": "action_icon_class",
+            "label": "Action Icon Class",
+            "required": false,
+            "placeholder": "Class name for the icon",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "action_icon_tooltip",
+            "type": "textarea",
+            "name": "action_icon_tooltip",
+            "label": "Action Icon Tooltip",
+            "required": false,
+            "placeholder": "write action icon tooltip text",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "validation",
+            "type": "textarea",
+            "name": "validation",
+            "label": "Validation Rule",
+            "required": false,
+            "placeholder": "write Validation for the Field",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "custom_validation",
+            "type": "textarea",
+            "name": "custom_validation",
+            "label": "Custom Validation",
+            "required": false,
+            "placeholder": "write Custom Validation for the Field",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Other",
+            "tab-order": "5"
+        },
+        {
+            "id": "class",
+            "type": "text",
+            "name": "class",
+            "label": "Class",
+            "required": false,
+            "placeholder": "Enter CSS Class here",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "append",
+            "type": "text",
+            "name": "append",
+            "label": "append",
+            "placeholder": "Append",
+            "required": false,
+            "condition": "this.form.type != null && (this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' || this.form.type == 'password')",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "prepend",
+            "type": "text",
+            "name": "prepend",
+            "label": "prepend",
+            "placeholder": "Prepend",
+            "required": false,
+            "condition": "this.form.type != null && (this.form.type == 'text' || this.form.type == 'email' || this.form.type == 'number' || this.form.type == 'password')",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "container",
+            "type": "text",
+            "name": "container",
+            "label": "Tab Group",
+            "condition": "this.form.type != null && this.form.type != 'grid'",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "container-name",
+            "type": "text",
+            "name": "container-name",
+            "label": "Tab Name",
+            "condition": "this.form.type != null  && this.form.type != 'grid'",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "container-active",
+            "type": "dropdown",
+            "name": "container-active",
+            "label": "Tab Active",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null   && this.form.type != 'grid'",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "sectionGroup",
+            "type": "text",
+            "name": "sectionGroup",
+            "label": "Section Group",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "sectionName",
+            "type": "text",
+            "name": "sectionName",
+            "label": "Section Name",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "rowIndex",
+            "type": "text",
+            "name": "rowIndex",
+            "label": "Row Index",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "inlineClass",
+            "type": "text",
+            "name": "inlineClass",
+            "label": "Inline Class",
+            "required": false,
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "CSS",
+            "tab-order": "4"
+        },
+        {
+            "id": "rule_json",
+            "type": "textarea",
+            "name": "rule_json",
+            "label": "sectionJSON",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Enter section JSON here",
+            "condition": "this.form.type != null && this.form.type == 'section'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "required": false,
+            "tab-order": "2"
+        },
+        {
+            "id": "button_options",
+            "type": "textarea",
+            "name": "button_options",
+            "label": "Button Options",
+            "placeholder": "Enter button labels here eg:{'close_label':'Close','add_label':'Add Rule'}",
+            "condition": "this.form.type != null && this.form.type == 'section'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "required": false,
+            "tab-order": "2"
+		},
+		{
+            "id": "show_add_label",
+            "type": "dropdown",
+            "name": "show_add_label",
+            "label": "Show Add Label",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is true or false",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'section'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+		},
+		{
+            "id": "show_close_label",
+            "type": "dropdown",
+            "name": "show_close_label",
+            "label": "Show Close Label",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is true or false",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'section'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "name",
+            "type": "text",
+            "name": "name",
+            "label": "Name",
+            "required": true,
+            "placeholder": "Enter Name for the Field",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "id",
+            "type": "text",
+            "name": "id",
+            "label": "ID",
+            "required": false,
+            "computation": "form.name.replace(/\\s/g,'').toLowerCase()",
+            "placeholder": "Enter ID for the Field",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "label",
+            "type": "text",
+            "name": "label",
+            "label": "Label",
+            "required": false,
+            "placeholder": "Enter Label for the Field",
+            "condition": "this.form.type != null && this.form.type !='hidden'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "placeholder",
+            "type": "text",
+            "name": "placeholder",
+            "label": "Placeholder",
+            "required": false,
+            "placeholder": "Enter Placeholder for the Field",
+            "condition": "this.form.type != null && this.form.type !='hidden' && this.form.type !='html'  && this.form.type != 'grid' && this.form.type != 'dual-list' && this.form.type != 'checkbox' && this.form.type != 'radio'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "search_placeholder",
+            "type": "text",
+            "name": "search_placeholder",
+            "label": "Search Placeholder",
+            "required": false,
+            "placeholder": "Enter Placeholder for the Field",
+            "condition": "this.form.type != null && this.form.type == 'dual-list'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "canvas_id",
+            "type": "text",
+            "name": "canvas_id",
+            "label": "Canvas Id",
+            "condition": "this.form.type != null && this.form.type =='canvas'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "canvas_config",
+            "type": "text",
+            "name": "canvas_config",
+            "label": "Canvas Config",
+            "condition": "this.form.type != null && this.form.type =='canvas'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "vaules_ob",
+            "type": "text",
+            "name": "vaules_ob",
+            "label": "Values Object",
+            "condition": "this.form.type != null && this.form.type =='switch'",
+            "description": "write dynamic values from object Eg:{'true_val':'enable','false_val':'disable'}",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "url",
+            "type": "text",
+            "name": "url",
+            "label": "URL",
+            "condition": "this.form.type != null && this.form.type =='typeahead' || this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "base_url",
+            "type": "text",
+            "name": "base_url",
+            "label": "Base URL",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "key_value",
+            "type": "text",
+            "name": "key_value",
+            "label": "key value",
+            "condition": "this.form.type != null && this.form.type =='typeahead'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "key_label",
+            "type": "text",
+            "name": "key_label",
+            "label": "key label",
+            "condition": "this.form.type != null && this.form.type =='typeahead'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "response_key",
+            "type": "text",
+            "name": "response_key",
+            "label": "response key",
+            "condition": "this.form.type != null && this.form.type =='typeahead'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "query_param_key",
+            "type": "text",
+            "name": "query_param_key",
+            "label": "query param key",
+            "condition": "this.form.type != null && this.form.type =='typeahead'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "custom_query",
+            "type": "dropdown",
+            "name": "custom_query",
+            "label": "custom query",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='typeahead'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "collection",
+            "type": "textarea",
+            "name": "collection",
+            "label": "collection",
+            "condition": "this.form.type != null && this.form.type =='dual-list'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "options",
+            "type": "textarea",
+            "name": "options",
+            "label": "options",
+            "condition": "this.form.type != null && this.form.type =='dual-list'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dropdown_options",
+            "type": "textarea",
+            "name": "dropdown",
+            "label": "dropdown options",
+            "condition": "this.form.type != null && (this.form.type =='dual-list' || this.form.type =='excel-table')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dropdown_button_options",
+            "type": "textarea",
+            "name": "dropdown_button_options",
+            "label": "dropdown button options",
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "params",
+            "type": "textarea",
+            "name": "params",
+            "label": "Params",
+            "description":"Fetch data with given params object",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "ac_cursor",
+            "type": "textarea",
+            "name": "ac_cursor",
+            "label": "ac cursor",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "row_actions",
+            "type": "textarea",
+            "name": "row_actions",
+            "label": "Row Actions",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "column_actions",
+            "type": "textarea",
+            "name": "column_actions",
+            "label": "Column Actions",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "group_actions",
+            "type": "textarea",
+            "name": "group_actions",
+            "label": "Group Actions",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "action_btn",
+            "type": "textarea",
+            "name": "action_btn",
+            "label": "Action Button",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "group_data",
+            "type": "textarea",
+            "name": "group_data",
+            "label": "Group Data",
+            "condition": "this.form.type != null && this.form.type == 'excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "excel_dropdown",
+            "type": "dropdown",
+            "name": "excel_dropdown",
+            "label": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "method",
+            "type": "text",
+            "name": "url_method_type",
+            "label": "Method",
+            "placeholder": "Enter method for url",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "loading_image",
+            "type": "text",
+            "name": "loading_image",
+            "label": "Loading Image URL",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "group_key",
+            "type": "text",
+            "name": "group_key",
+            "label": "Group Key",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "pagination_type",
+            "type": "text",
+            "name": "pagination_type",
+            "label": "Pagination Type",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "load_more_type",
+            "type": "text",
+            "name": "load_more_type",
+            "label": "Load More Type",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "limit_key",
+            "type": "text",
+            "name": "limit_key",
+            "label": "Limit Key",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "offset_key",
+            "type": "text",
+            "name": "offset_key",
+            "label": "Offset Key",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "sort_key",
+            "type": "text",
+            "name": "sort_key",
+            "label": "Sort Key",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "stg_data_count",
+            "type": "text",
+            "name": "stg_data_count",
+            "label": "Stage Data Count",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "limit",
+            "type": "text",
+            "name": "limit",
+            "label": "Limit",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "group_name",
+            "type": "text",
+            "name": "group_name",
+            "label": "Group Name",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },{
+            "id": "total_count",
+            "type": "text",
+            "name": "total_count",
+            "label": "Total Count",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "bulk",
+            "type": "dropdown",
+            "name": "bulk",
+            "label": "Bulk",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "show_dropdown",
+            "type": "dropdown",
+            "name": "show_dropdown",
+            "label": "show dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },{
+            "id": "show_loadmore",
+            "type": "dropdown",
+            "name": "show_loadmore",
+            "label": "show load more",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='excel-table'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dual_values",
+            "type": "textarea",
+            "name": "dualValues",
+            "label": "dual values",
+            "condition": "this.form.type != null && this.form.type =='dual-list'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "colors",
+            "type": "textarea",
+            "name": "colors",
+            "label": "Colors",
+            "condition": "this.form.type != null && this.form.type =='swatches'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "color",
+            "type": "text",
+            "name": "color",
+            "label": "Color",
+            "condition": "this.form.type != null && this.form.type =='swatches'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "opens",
+            "type": "text",
+            "name": "opens",
+            "label": "opens",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dateFormat",
+            "type": "text",
+            "name": "dateFormat",
+            "label": "dateFormat",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "minDate",
+            "type": "text",
+            "name": "minDate",
+            "label": "minDate",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "maxDate",
+            "type": "text",
+            "name": "maxDate",
+            "label": "maxDate",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "ranges",
+            "type": "textarea",
+            "name": "ranges",
+            "label": "Ranges",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "singleDatePicker",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Single date picker will render",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "singleDatePicker",
+            "label": "singleDatePicker",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "timePicker24Hour",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "The time selection uses the 24 hour format",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "timePicker24Hour",
+            "label": "timePicker24Hour",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "showDropdowns",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Show dropdown/input for faster selection of year and month",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "showDropdowns",
+            "label": "showDropdowns",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "autoApply",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Automatically select the range once the second date is selected ( otherwise you need to click the apply button)",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "autoApply",
+            "label": "autoApply",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "showWeekNumbers",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Show the week numbers on the left side of the calendar",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "showWeekNumbers",
+            "label": "showWeekNumbers",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "ranges_url",
+            "type": "text",
+            "name": "ranges_url",
+            "label": "Custom Ranges URL",
+            "condition": "this.form.type != null && this.form.type == 'date-range'",
+            "placeholder": "Enter ranges URL to Get Options",
+            "required": false,
+            "description": "Response Data should be array of json objects"
+        },
+        {
+            "id": "epoch_format",
+            "type": "dropdown",
+            "name": "epoch_format",
+            "label": "Epoch Format",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True",
+                    "checked": true
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false
+        },
+        {
+            "id": "showRanges",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "You can set this to false in order to hide the ranges selection. Otherwise it is an object with key/value.",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "showRanges",
+            "label": "showRanges",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "timePicker",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Allow the user to select time.",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "timePicker",
+            "label": "timePicker",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "timePickerIncrement",
+            "type": "text",
+            "name": "timePickerIncrement",
+            "label": "timePickerIncrement",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "timePickerSeconds",
+            "type": "text",
+            "name": "timePickerSeconds",
+            "label": "timePickerSeconds",
+            "condition": "this.form.type != null && this.form.type =='date-range'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "fieldsUrl",
+            "type": "text",
+            "name": "fieldsUrl",
+            "label": "Fields Url",
+            "condition": "this.form.type != null && this.form.type =='form'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "html",
+            "name": "html",
+            "label": "Html",
+            "description": "Enter HTML template",
+            "type": "text",
+            "condition": "this.form.type != null && this.form.type =='template-render'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "url",
+            "name": "url",
+            "label": "URL",
+            "description": "Enter url if want to render template from server",
+            "type": "text",
+            "condition": "this.form.type != null && this.form.type =='template-render'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "formJson",
+            "type": "textarea",
+            "name": "formJson",
+            "label": "FormJson",
+            "condition": "this.form.type != null && this.form.type == 'form'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "required",
+            "type": "dropdown",
+            "name": "required",
+            "label": "Required",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type != 'html'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "minLength",
+            "type": "number",
+            "name": "minLength",
+            "label": "Minimum Length",
+            "placeholder": "Enter Minimum Length",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='password' || this.form.type =='text' || this.form.type =='textarea' || this.form.type =='code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "maxLength",
+            "type": "number",
+            "name": "maxLength",
+            "label": "Maximum Length",
+            "placeholder": "Enter Maximum Length",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='password' || this.form.type =='textarea' || this.form.type =='text'|| this.form.type =='code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "showPassword",
+            "type": "dropdown",
+            "name": "showPassword",
+            "label": "showPassword",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False",
+                    "checked": true
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'password'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "numeric",
+            "type": "dropdown",
+            "name": "numeric",
+            "label": "Numeric",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether it allows only Numeric or Not"
+                },
+                {
+                    "value": true,
+                    "label": "True",
+                    "checked": true
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'number'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "min",
+            "type": "number",
+            "name": "min",
+            "label": "Minimum Value",
+            "placeholder": "Enter Minimum Value",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'number'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "max",
+            "type": "number",
+            "name": "max",
+            "label": "Maximum Value",
+            "placeholder": "Enter Maximum Value",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'number'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "rows",
+            "type": "number",
+            "name": "rows",
+            "label": "No of rows",
+            "placeholder": "Enter No of rows",
+            "required": false,
+            "condition": "this.form.type != null && (this.form.type == 'code-editor' || this.form.type == 'textarea')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "max-rows",
+            "type": "number",
+            "name": "max-rows",
+            "label": "Maximum No of rows",
+            "placeholder": "Enter Maximum No of rows",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'textarea'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "lang",
+            "type": "dropdown",
+            "name": "lang",
+            "label": "Language",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select Language",
+                    "checked": true
+                },
+                {
+                    "value": "html",
+                    "label": "Html"
+                },
+                {
+                    "value": "javascript",
+                    "label": "Javascript"
+                },
+                {
+                    "value": "scss",
+                    "label": "scss"
+                }
+            ],
+            "required": true,
+            "condition": "this.form.type != null && this.form.type == 'code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "height",
+            "type": "text",
+            "name": "height",
+            "condition": "this.form.type != null && (this.form.type == 'code-editor' || this.form.type == 'workflow' || this.form.type == 'designer')",
+            "label": "Height",
+            "placeholder": "Enter Height",
+            "required": true,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "width",
+            "type": "text",
+            "name": "width",
+            "label": "Width",
+            "placeholder": "Enter Width",
+            "required": true,
+            "condition": "this.form.type != null && (this.form.type == 'code-editor' || this.form.type == 'workflow' || this.form.type == 'designer')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "render",
+            "type": "radio",
+            "name": "render",
+            "label": "Render",
+            "required": true,
+            "condition": "this.form.type != null && (this.form.type == 'workflow' || this.form.type == 'designer')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2",
+            "option": [
+                {
+                "label": "Yes",
+                "value": true
+                },
+                {
+                "label": "No",
+                "value": false
+                }
+            ]
+        },
+        {
+            "id": "src",
+            "type": "text",
+            "name": "src",
+            "label": "src",
+            "condition": "this.form.type != null && (this.form.type == 'code-editor' || this.form.type == 'workflow' || this.form.type == 'designer')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "html",
+            "type": "text",
+            "name": "html",
+            "label": "Html",
+            "condition": "this.form.type != null && this.form.type == 'html'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "uploadType",
+            "type": "text",
+            "name": "upload_type",
+            "label": "Upload Type",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "custom_file_name",
+            "type": "text",
+            "name": "custom_file_name",
+            "label": "Custom File Name",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "uploadConfig",
+            "type": "text",
+            "name": "uploadConfig",
+            "label": "uploadConfig",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "content_type",
+            "type": "text",
+            "name": "content_type",
+            "label": "Content Type",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "show_image_preview",
+            "type": "dropdown",
+            "name": "show_image_preview",
+            "label": "Show Image Preview",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True",
+                    "checked": true
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "allow_origin",
+            "type": "text",
+            "name": "allow_origin",
+            "label": "Allow Origin",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "extentions",
+            "type": "text",
+            "name": "extentions",
+            "label": "File Extension",
+            "condition": "this.form.type != null && this.form.type == 'upload'",
+            "description": "enter required extension comma separated",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "supportedFormats",
+            "type": "text",
+            "name": "supportedFormats",
+            "label": "Supported Formats",
+            "condition": "this.form.type != null && this.form.type == 'file'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "toolbar1",
+            "type": "textarea",
+            "name": "toolbar1",
+            "label": "toolbar1",
+            "condition": "this.form.type != null && this.form.type == 'workflow'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "toolbar2",
+            "type": "textarea",
+            "name": "toolbar2",
+            "label": "toolbar2",
+            "condition": "this.form.type != null && this.form.type == 'workflow'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "marketplace",
+            "type": "textarea",
+            "name": "marketplace",
+            "label": "marketplace",
+            "condition": "this.form.type != null && this.form.type == 'workflow'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "max-row",
+            "type": "number",
+            "name": "max-row",
+            "label": "Maximum No of rows",
+            "placeholder": "Enter Maximum No of rows",
+            "required": true,
+            "condition": "this.form.type != null && this.form.type == 'code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "loadOptions",
+            "type": "dropdown",
+            "name": "loadOptions",
+            "label": "Load Options Type",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select Options Type",
+                    "checked": true
+                },
+                {
+                    "value": "url",
+                    "label": "Dynamic URL"
+                },
+                {
+                    "value": "options",
+                    "label": "Add Options"
+                }
+            ],
+            "required": true,
+            "condition": "this.form.type != null && (this.form.type =='multiselect'|| this.form.type =='tags')",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "url",
+            "type": "text",
+            "name": "url",
+            "label": "URL",
+            "condition": "this.form.type != null && (this.form.loadOptions == 'url' && (this.form.type =='multiselect'|| this.form.type =='tags' || this.form.type =='typeahead')) || this.form.type =='dropdown' || this.form.type =='checkbox' || this.form.type == 'upload' || this.form.type =='excel-table'",
+            "placeholder": "Enter URL to Get Options",
+            "required": false,
+            "description": "Response Data should be array of json objects",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "key_value",
+            "type": "text",
+            "name": "key_value",
+            "label": "Key Value",
+            "condition": "this.form.type != null && (this.form.loadOptions == 'url' && (this.form.type =='multiselect'|| this.form.type =='tags' || this.form.type =='typeahead')) || this.form.type =='dropdown' || this.form.type =='checkbox' ||this.form.type == 'dual-list'",
+            "required": false,
+            "placeholder": "Enter Key for the Option",
+            "description": "Key Value should match with one of the key of JSON Objects of response Data from url",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "key_label",
+            "type": "text",
+            "name": "key_label",
+            "label": "Key Label",
+            "condition": "this.form.type != null && (this.form.loadOptions == 'url' && (this.form.type =='multiselect'|| this.form.type =='tags' || this.form.type =='typeahead')) || this.form.type =='dropdown'|| this.form.type =='checkbox' || this.form.type == 'dual-list'",
+            "required": false,
+            "placeholder": "Enter Label for the Option",
+            "description": "Key Label should match with one of the key of JSON Objects of response Data from url",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "message",
+            "type": "text",
+            "name": "message",
+            "label": "Message",
+            "condition": "this.form.type != null && this.form.loadOptions == 'url' && ( this.form.type =='multiselect')",
+            "placeholder": "Enter Message for empty state",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "copy",
+            "type": "dropdown",
+            "name": "copy",
+            "label": "Copy",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'copy-code'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "share",
+            "type": "dropdown",
+            "name": "share",
+            "label": "Share",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select whether Field is Required or Not",
+                    "checked": true
+                },
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'copy-code'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "copy_data",
+            "type": "textarea",
+            "name": "copy_data",
+            "label": "Copy Data",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Give the data to be copied",
+            "condition": "this.form.type != null && this.form.type == 'copy-code'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "share_data",
+            "type": "textarea",
+            "name": "share_data",
+            "label": "Share Data",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Give the data to be shared",
+            "condition": "this.form.type != null && this.form.type == 'copy-code'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "option_grid",
+            "type": "grid",
+            "name": "option",
+            "label": "Option",
+            "columns": [
+                {
+                    "key": "label",
+                    "label": "Label"
+                },
+                {
+                    "key": "value",
+                    "label": "Value"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "label",
+                        "type": "text",
+                        "name": "label",
+                        "label": "Label",
+                        "placeholder": "Enter Label for the Option",
+                        "required": true
+                    },
+                    {
+                        "id": "value",
+                        "type": "text",
+                        "name": "value",
+                        "label": "Value",
+                        "placeholder": "Enter key for the Option",
+                        "required": true
+                    },
+                    {
+                        "id": "checked",
+                        "type": "dropdown",
+                        "name": "checked",
+                        "label": "Checked",
+                        "option": [
+                            {
+                                "value": true,
+                                "label": "True"
+                            },
+                            {
+                                "value": false,
+                                "label": "False",
+                                "checked": true
+                            }
+                        ],
+                        "required": false
+                    },
+                    {
+                        "id": "disabled",
+                        "type": "dropdown",
+                        "name": "disabled",
+                        "label": "Disabled",
+                        "option": [
+                            {
+                                "value": true,
+                                "label": "True"
+                            },
+                            {
+                                "value": false,
+                                "label": "False",
+                                "checked": true
+                            }
+                        ],
+                        "required": false
+                    }
+                ]
+            },
+            "condition": "this.form.type != null && ((this.form.loadOptions == 'options' && (this.form.type =='multiselect'|| this.form.type =='tags')) || this.form.type =='checkbox' || this.form.type =='radio') || this.form.type =='dropdown'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "config",
+            "type": "textarea",
+            "name": "config",
+            "label": "Config",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Enter Config Object here",
+            "condition": "this.form.type != null && this.form.type == 'tags' || this.form.type == 'multiselect'|| this.form.type == 'typeahead' || this.form.type == 'quilljs' || this.form.type == 'date' || this.form.type == 'time' || this.form.type == 'datetime'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "s3presignurl",
+            "type": "text",
+            "name": "s3presignurl",
+            "label": "s3presignurl",
+            "condition": "this.form.type != null && this.form.type =='quilljs'",
+            "placeholder": "Enter s3presignurl",
+            "required": true,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "description",
+            "type": "text",
+            "name": "description",
+            "label": "Description",
+            "required": false,
+            "placeholder": "Enter Description for the Field",
+            "condition": "this.form.type != null",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "display_charcount",
+            "type": "dropdown",
+            "name": "display_charcount",
+            "label": "Character Count",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'textarea'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2",
+            "option": [
+                {
+                "label": "Yes",
+                "value": true
+                },
+                {
+                "label": "No",
+                "value": false
+                }
+            ]
+        },
+        {
+            "id": "value",
+            "type": "text",
+            "name": "value",
+            "label": "Value",
+            "placeholder": "Default value for the Field",
+            "required": false,
+            "condition": "this.form.type != null  && this.form.type != 'grid' && this.form.type != 'html' && this.form.type != 'code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "value",
+            "type": "code-editor",
+            "name": "value",
+            "label": "Value",
+            "height": "100px",
+            "width": "95%",
+            "rows": "10",
+            "placeholder": "Default value for the Field",
+            "required": false,
+            "condition": "this.form.type != null  && this.form.type == 'code-editor'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "columns",
+            "type": "grid",
+            "name": "columns",
+            "label": "Columns",
+            "columns": [
+                {
+                    "key": "label",
+                    "label": "Label"
+                },
+                {
+                    "key": "key",
+                    "label": "Key"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "label",
+                        "type": "text",
+                        "name": "label",
+                        "label": "Label",
+                        "placeholder": "Enter Label",
+                        "required": true
+                    },
+                    {
+                        "id": "key",
+                        "type": "text",
+                        "name": "key",
+                        "label": "Key",
+                        "placeholder": "Enter Key",
+                        "required": true
+                    }
+                ]
+            },
+            "condition": "this.form.type != null && (this.form.type == 'grid' || this.form.type == 'excel-table')",
+            "required": true,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "spilt",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "spilt",
+            "label": "Spilt",
+            "description": "Split button is shows when split is true",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "size",
+            "type": "text",
+            "name": "size",
+            "label": "Size",
+            "placeholder": "Size of the button",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "split_variant",
+            "type": "text",
+            "name": "split_variant",
+            "label": "Split Variant",
+            "description": "Split button color variant when split is true",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "variant",
+            "type": "text",
+            "name": "variant",
+            "label": "Variant",
+            "required": false,
+            "description": "Dropdown color variant",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "refresh_icon",
+            "type": "dropdown",
+            "name": "refresh_icon",
+            "label": "Refresh Icon",
+            "condition": "this.form.type != null && this.form.type =='dropdown'",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false
+        },
+        {
+            "id": "split_href",
+            "type": "text",
+            "name": "split_href",
+            "label": "Split href",
+            "required": false,
+            "description": "Link for left split button when split prop is true",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "split_button_type",
+            "type": "text",
+            "name": "split_button_type",
+            "label": "Split Button Type",
+            "description": "Left side Button type, like submit and button",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dropdown_header",
+            "type": "text",
+            "name": "dropdown_header",
+            "label": "Dropdown Header",
+            "required": false,
+            "description": "Header for dropdown",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "dropdown_header_class",
+            "type": "text",
+            "name": "dropdown_header_class",
+            "label": "Dropdown Header Class",
+            "description": "Dropdown header class",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "no_caret",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "no_caret",
+            "label": "No Caret",
+            "description": "Hidden caret",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "lazy",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "name": "lazy",
+            "label": "Lazy",
+            "description": "Lazy is true then dropdown items are not loaded in DOM, it will be loaded when header is selected",
+            "condition": "this.form.type != null && this.form.type =='ac-dropdown'",
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "items",
+            "type": "textarea",
+            "name": "items",
+            "label": "Dropdown Items",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Dropdown items",
+            "condition": "this.form.type != null && this.form.type == 'ac-dropdown'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        },
+        {
+            "id": "html",
+            "type": "textarea",
+            "name": "html",
+            "label": "HTML",
+            "rows": "5",
+            "max-rows": "100",
+            "placeholder": "Html Code",
+            "condition": "this.form.type != null && this.form.type == 'email-builder'",
+            "required": false,
+            "container": "settings",
+            "container-name": "Info",
+            "container-active": "true",
+            "tab-order": "2"
+        }
+    ]
+}
