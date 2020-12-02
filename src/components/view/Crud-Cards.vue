@@ -34,7 +34,19 @@
       -->
       <template #card_body="{ item }">
         <div class="card-body p-0 border-0">
-          {{ item.name }}
+         <b-card  class="shadow-none border-0  mb-0">
+              <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
+                  <div class="card-body p-0">
+                      <!-- Body -->
+                      <p class="mt-3">
+                          Finish the design for blog listings and articles, including mixed media
+                      </p>
+                      <p class="card-text small text-muted d-flex align-items-center">
+                          <i class="fe fe-message-circle mr-2"></i> {{ item.name }}
+                          <i class="fe fe-clock ml-4 mr-2"></i> Sep 9
+                      </p>
+                  </div>
+                </b-card>
           <!-- <component :is="componentName" :item="item" :appName="appName" :portal_users='portal_users' :entity="b_entity"></component> -->
         </div>
       </template>

@@ -37,7 +37,7 @@ const viewJson = {
       blockParams: {
         b: true, // Bulk
         d: true, // Dropdown
-        cl: 6 // Card in a row
+        cl: 4 // Card in a row
       }
     },
     {

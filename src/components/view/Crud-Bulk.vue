@@ -1,15 +1,16 @@
 <template>
-  <div ref="bulk-ref" class="d-flex">
+  <div ref="bulk-ref" class="list-alert alert alert-dark border
+   fade show d-flex align-items-center justify-content-between">
+    <div >
+      <!-- <span class="items-selected">{{ key2.length }} items selected</span> | -->
+      <span class="cursor-pointer" @click="getAllIds(lengthMatches)">{{lengthMatches}}</span>
+      ({{ count.length }})
+    </div>
     <div class="d-flex align-items-center">
       <!--Button Group Starts-->
       <ac-button-group :data="bulkForm" :key="bulkForm" @click="buttonClick">
         <i class="fas fa-circle"></i>
       </ac-button-group>
-    </div>
-    <div >
-      <!-- <span class="items-selected">{{ key2.length }} items selected</span> | -->
-      <span class="cursor-pointer" @click="getAllIds(lengthMatches)">{{lengthMatches}}</span>
-      ({{ count.length }})
     </div>
   </div>
 </template>

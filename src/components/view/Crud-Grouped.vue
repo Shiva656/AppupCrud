@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-card body-class="p-0" class="border-0">
     <ac-grouped-view
       :view="blockParams.v"
       :ref="componentName+'-ref'"
@@ -32,7 +33,7 @@
       v-if='itemUrl'
     >
       <template v-slot:group_header="{ groupItem }">
-      {{groupItem.name}}
+     <h5 class="mb-0"> {{groupItem.name}}</h5>
       </template>
       <template v-slot:header>
         <!--Main Header      :group_key="blockParams.gk"
@@ -60,6 +61,7 @@
       </template> -->
 
     </ac-grouped-view>
+    </b-card>
   </div>
 </template>
 <script>

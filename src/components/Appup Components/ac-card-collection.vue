@@ -1,5 +1,5 @@
 <template>
-  <div ref="collection_wrapper" :style="{maxHeight: max_height}" :class="add_class">
+  <div ref="collection_wrapper" :style="{maxHeight: max_height}" :class="add_class" >
     <!-- loader image -->
     <div v-show="is_loading" class="loader row">
       <!--onError is to handle the broken image of loader -->
@@ -40,7 +40,7 @@
           <b-row>
             <!-- <b-col v-for="(item,index) in data" :key="index" :class="response_class" :md="column_size"> -->
             <b-col v-for="(item,index) in actual_data" :key="index" :class="response_class">
-              <div class="card h-100 card-head-bg w-100" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
+              <div class="card mb-0 card-head-bg w-100" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
                 <slot name="option" :data="{item:item,index:index}">
                   <ac-material-dropdown
                     v-if="show_dropdown"
@@ -510,7 +510,7 @@ export default {
      * @return {String}
      */
     add_class () {
-      return 'ac-card-collection card d-flex flex-column ' + this.main_class;
+      return 'ac-card-collection d-flex flex-column ' + this.main_class;
     },
     /**
      * Custom class for the component body slot

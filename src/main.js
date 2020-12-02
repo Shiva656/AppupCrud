@@ -6,8 +6,6 @@ import AppupHttp from '@appup/appup-components-dynamic/plugins/appup-http'; // T
 import VeeValidate from 'vee-validate'; // Form validate
 import { Workflow } from '@appup/components/src/mixins/workflow'; // Handlers
 import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 import FullCalendar from 'vue-full-calendar';
 import 'fullcalendar/dist/fullcalendar.min.css';
 

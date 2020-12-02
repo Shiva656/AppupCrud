@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-card body-class="p-0" class="border-0">
     <ac-collection-grouped-table
       :ref="componentName+'-ref'"
       :columns="collection.columns"
@@ -20,12 +21,13 @@
       @dropdown_click="dropdownClick"
     >
       <template v-slot:group_header="{ groupItem }">
-        <h6>{{ groupItem[blockParams.gk] }}</h6>
+        <h5 class="py-1 mb-0 text-capitalize">{{ groupItem[blockParams.gk] }}</h5>
       </template>
       <template #emptyState>
         <p><center>No Data</center></p>
       </template>
     </ac-collection-grouped-table>
+    </b-card>
   </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="table-responsive" v-if="loaded_data && stages && stages.length">
-            <table class="table border" v-if="view == 'table'">
+        <div class="" v-if="loaded_data && stages && stages.length">
+            <table class="table table-sm table-responsive-md" v-if="view == 'table'">
                 <thead :class="header_class">
                     <tr>
                         <!-- Check for bluk prop -->
