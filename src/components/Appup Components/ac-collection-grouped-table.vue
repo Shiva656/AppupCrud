@@ -6,7 +6,7 @@
     </header>
     <div v-if="Object.keys(data).length">
       <div class="table-responsive" @scroll="infiniteScroll" :style="scroll_style">
-        <table class="table border">
+        <table class="table table-sm table-responsive-md">
           <thead :class="header_class">
             <tr>
               <!-- Check for bluk prop -->

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-card >
     <ac-fullcalendar
       :events="events"
       :ref="componentName + '-ref'"
@@ -8,6 +9,7 @@
       @event-drop="eventDragDrop"
       @event-click="rowClick"
     />
+    </b-card>
   </div>
 </template>
 <script>

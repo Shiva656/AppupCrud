@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="d-flex justify-content-between">
-      <h1>{{ entity }}</h1>
+    <div class="d-flex justify-content-between header-body mb-4">
+      <div>
+        <h1 class="header-title mb-2">{{ entity }}</h1>
+        <h6 class="header-pretitle mb-0">header-pretitle</h6>
+      </div>
       <span class="d-flex"
         >  <CrudSimpleFilter :templateParams="templateParams"  v-if='templateParams.f==="t"' :entity="entity" :fields="fields"  @filter_form="filterForm">
 
@@ -9,12 +12,14 @@
 
         <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
         <div>
-          <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" v-for="item in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="light">
+          <b-button-group class="ml-3 nav d-inline-flex">
+          <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" v-for="item in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
             <i class="far fa-bars" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></i>
             <i class="fas fa-th-large" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></i>
             <i class="fa fa-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></i>
             <i class="far fa-th" v-if="item == 'v-kanban'"></i>
           </b-button>
+          </b-button-group>
         </div>
         <AddButton v-bind="{ templateParams, entity }" @add_click="openModal" v-if="templateParams.ad === 't'"></AddButton>
       </span>
@@ -93,7 +98,7 @@ export default {
         loadingImage: '',
         dropdownOptions: [],
         buttonOptions: {
-          icon: 'fal fa-ellipsis-h',
+          icon: 'fe fe-more-vertical text-muted',
           variant: 'bg-transparent p-0',
           size: 'lg',
           right: true,

@@ -32,11 +32,23 @@
         count_key="count"
       >
         <template slot="header" scope="{ headItem }">
-          <h6 class="card-title text-uppercase text-truncate">{{ headItem.name }}</h6>
+          <h4 class="card-header-title ml-1 text-truncate">{{ headItem.name }}</h4>
         </template>
         <template slot="body" scope="{ item }">
-          <div class="card-body p-2" :key="renderUpdate">
-            {{ item.name }}
+          <div class="card-body pb-2" :key="renderUpdate">
+            <b-card no-body class="shadow-none border-0  mb-0">
+              <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
+                  <div class="card-body p-0">
+                      <!-- Body -->
+                      <p class="mt-3">
+                          Finish the design for blog listings and articles, including mixed media
+                      </p>
+                      <p class="card-text small text-muted d-flex align-items-center">
+                          <i class="fe fe-message-circle mr-2"></i> {{ item.name }}
+                          <i class="fe fe-clock ml-4 mr-2"></i> Sep 9
+                      </p>
+                  </div>
+                </b-card>
             <!-- <component :is="cardName" :item="item"></component> -->
             <p></p>
           </div>

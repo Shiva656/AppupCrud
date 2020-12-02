@@ -19,13 +19,24 @@
       tooltip_message="search here ..."
     >
       <template v-slot:group_header="{ groupItem }">
-       Group {{groupItem[blockParams.gk]}}
+       <h4 class="mb-4">Group {{groupItem[blockParams.gk]}}</h4>
       </template>
       <template v-slot:body="{ data }" class="item">
         <div class="row">
-          <div v-for="(value, key) in data" :key="key" :class="'col-md-' + cardClass + ' mb-3'">
-         Name:- {{value.name}}
-
+          <div v-for="(value, key) in data" :key="key" :class="'col-md-' + cardClass + ' mb-4'">
+              <b-card  class="shadow-none border-0  mb-0">
+              <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
+                  <div class="card-body p-0">
+                      <!-- Body -->
+                      <p class="mt-3">
+                          Finish the design for blog listings and articles, including mixed media
+                      </p>
+                      <p class="card-text small text-muted d-flex align-items-center">
+                          <i class="fe fe-message-circle mr-2"></i> {{ value.name }}
+                          <i class="fe fe-clock ml-4 mr-2"></i> Sep 9
+                      </p>
+                  </div>
+            </b-card>
           </div>
         </div>
       </template>

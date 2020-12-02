@@ -1,28 +1,27 @@
 <template>
-  <div class="container-fluid p-0 d-flex overflow-auto">
+  <div class=" ">
     <!-- <div class="d-flex flex-row-reverse py-3 icon bg-white border-muted" v-if="limitedStages && limitedStages.length">
     <a :class="{'disabled-arrows':right_length == stages.length}"><i class="material-icons rounded-circle bg-primary text-white d-flex justify-content-center align-items-center mr-3"  :class="{'bg-secondary':right_length == stages.length}" style="font-size: 20px; cursor: pointer;" @click="arrow_right">keyboard_arrow_right</i> </a>
     <a :class="{'disabled-arrows':right_length <= 4}"><i class="material-icons rounded-circle bg-primary d-flex text-white justify-content-center align-items-center mr-3" :class="{'bg-secondary':right_length <= 4}"  style="font-size: 20px; cursor: pointer;" @click="arrow_left">keyboard_arrow_left</i></a>
     </div>-->
-    <div :class="main_class">
-      <div
-        class="d-flex flex-column align-items-stretch w-340 p-1 custom-ticket-bg"
-        v-for="(stg,stgIndex) in limitedStages"
-        :key="stgIndex"
-      >
-        <div class="custom-odd-color">
-          <div class>
-            <div class="d-flex align-items-center kanban-header">
-              <template v-if="bulk_action">
-                <b-form-checkbox
-                  :class="header_class"
-                  :id="`checkboxs${stg[stage_append_key]}${stgIndex}`"
-                  @change="bulk_actions($event,stg,'S',stgIndex)"
-                ></b-form-checkbox>
-              </template>
-              <!-- slot for header -->
-              <slot name="header" :headItem="stg"></slot>
-            </div>
+    <div class="container-fluid kanban-container pl-0" :class="main_class">
+      <div class="row">
+        <div class="col-12 custom-ticket-bg" v-for="(stg,stgIndex) in limitedStages" :key="stgIndex">
+          <b-card class="custom-odd-color" no-body>
+              <b-card-header class=" card-header-flush  kanban-header">
+              <div class="d-flex align-items-center">
+                <template v-if="bulk_action">
+                  <b-form-checkbox
+                    :class="header_class"
+                    :id="`checkboxs${stg[stage_append_key]}${stgIndex}`"
+                    @change="bulk_actions($event,stg,'S',stgIndex)"
+                    ></b-form-checkbox>
+                  </template>
+                  <!-- slot for header -->
+                  <slot name="header" :headItem="stg"></slot>
+              </div>
+            </b-card-header>
+            <b-card-body>
             <div class="scroll-area-css p-0">
               <ac-collection
                 ref="acCollections"
@@ -39,18 +38,18 @@
                 :ac_cursor="ac_cursor"
                 :loading_image="loading_image"
                 sort_key="name"
+                class="shadow-none border-0 mb-0 rounded-0"
                 v-if="stg.itemUrl"
-                class="my-2"
                 :scroll_style="scroll_style"
               >
                 <template #body="{ data }">
                   <div
-                    class="items border-light"
+                    class="items"
                     @dragover.stop="on_drag_over"
                     @drop.stop="on_drop($event,stgIndex)"
                   >
                     <div
-                      class="card draggable cursor-pointer mb-2"
+                      class="card draggable cursor-pointer shadow-none"
                       id="cd1"
                       v-for="(item,blkIndex) in data"
                       :key="blkIndex"
@@ -59,7 +58,7 @@
                       @click="$emit('card-click',item)"
                       @dblclick="$emit('card-dbclick',item)"
                     >
-                    <div class="d-flex align-items-center justify-content-between p-1">
+                    <div class="d-flex align-items-center justify-content-between card-header border-bottom-0 card-header-flush">
                       <div v-if="bulk_action">
                         <b-form-checkbox
                           :id="`checkboxb${stg[stage_append_key]}${blkIndex}`"
@@ -90,24 +89,24 @@
                         </ac-material-dropdown>
                         </slot>
                       </div>
-                      </div>
+                    </div>
                       <slot name="body" :item="item" :list="data"></slot>
                     </div>
-                    <div class="card draggable shadow-sm cursor-pointer" v-if="!data.length">
+                    <div class="card draggable cursor-pointer mb-0  dz-default dz-message p-0 rounded" v-if="!data.length">
                       <div v-if="show_stg_empty_slot">
                         <!-- Empty stage slot -->
                         <slot name="stg_empty_state"></slot>
                       </div>
-                      <div class="card-body p-3" v-else>Drag Here</div>
+                      <div class="card-body p-3 dz-button dz-default dz-message" v-else>Drag Here</div>
                     </div>
                   </div>
                 </template>
               </ac-collection>
             </div>
-          </div>
-        </div>
+            </b-card-body>
+        </b-card>
       </div>
-
+      </div>
       <!-- Empty state slot -->
       <div
         class="empty_state_class w-100"

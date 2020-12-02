@@ -9,6 +9,7 @@
           :variant="item.variant"
           :class="(index == current_Index) ?'active':''"
           :text="item.name"
+          class="btn-sm"
           v-if="(item.type !== 'undefined' && item.type === 'dropdown') ||
        ( item.type === 'undefined' &&  item.items !== 'undefined')"
         >

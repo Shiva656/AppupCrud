@@ -24,7 +24,7 @@
       <div v-if="pagination_type !== 'deselect'">
         <slot name="caption" :loaded_data_count="loaded_data_count" :total_count="total_count"></slot>
       </div>
-      <b-table
+      <b-table class="table-sm"
         outlined
         responsive
         :sticky-header="sticky_header == 'true' ? true : false"
@@ -1311,34 +1311,8 @@ export default {
 </script>
 
 <style>
-/* .loader {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, .65);
-} */
-.table-thead-border th {
-  border-bottom-width: 0 !important;
-  white-space: nowrap !important;
-}
 .table-thead-border td {
   vertical-align: middle !important;
-}
-.table thead th {
-  border-bottom: 0px !important;
-}
-table {
-  margin-bottom: 0px !important;
-}
-.ac-collection-table th,
-.ac-collection-table td {
-  white-space: nowrap !important;
 }
 .cursor-pointer .custom-control-label {
   cursor: pointer;

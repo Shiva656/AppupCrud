@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-card body-class="p-0">
     <ac-collection-table class="test"
       :ref="componentName + '-ref'"
       :bulk="blockParams.b ? true : false"
@@ -38,6 +39,7 @@
           <template v-else>{{data.item[block.key]}}</template>
         </template> -->
     </ac-collection-table>
+    </b-card>
   </div>
 </template>
 <script>
