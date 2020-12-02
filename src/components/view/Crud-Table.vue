@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ac-collection-table
+    <ac-collection-table class="test"
       :ref="componentName + '-ref'"
       :bulk="blockParams.b ? true : false"
       :dropdown="blockParams.d ? true : false"
