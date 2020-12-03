@@ -45,7 +45,7 @@ export default {
     });
     this.bulkForm = JSON.parse(JSON.stringify(this.bulkOptions));
     if (!this.templateParams.bd) {
-      this.bulkForm.push({ label: 'Delete', name: 'delete', type: 'delete', variant: 'outline-secondary is_active' });
+      this.bulkForm.push({ label: 'Delete', name: 'delete', type: 'delete', variant: 'white-20 ml-2 rounded btn-sm is_active' });
     }
   },
   methods: {

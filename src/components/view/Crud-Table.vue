@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card body-class="p-0">
+    <b-card class="border-0 rounded-0" body-class="p-0">
     <ac-collection-table class="test"
       :ref="componentName + '-ref'"
       :bulk="blockParams.b ? true : false"
@@ -9,6 +9,7 @@
       :dropdown_button_options="collection.buttonOptions"
       :columns="collection.columns"
       :url="url"
+      header_class='c'
       v-if="url"
       method="GET"
       :limit="templateParams.lm"

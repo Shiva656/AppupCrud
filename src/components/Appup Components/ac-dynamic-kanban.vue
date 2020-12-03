@@ -9,7 +9,7 @@
         <div class="col-12 custom-ticket-bg" v-for="(stg,stgIndex) in limitedStages" :key="stgIndex">
           <b-card class="custom-odd-color" no-body>
               <b-card-header class=" card-header-flush  kanban-header">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center pl-4">
                 <template v-if="bulk_action">
                   <b-form-checkbox
                     :class="header_class"

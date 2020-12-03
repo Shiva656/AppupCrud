@@ -1,10 +1,8 @@
 <template>
   <div role="tablist">
-    <b-card no-body class="mb-1" v-for="(item,index) in stages" :key="index">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button
-          block
-          href="#"
+    <b-card no-body class="mb-3" v-for="(item,index) in stages" :key="index">
+      <b-card-header header-tag="header" class="p-0"  role="tab">
+        <b-button class=" border-0 h-100"
           v-b-toggle="`accordion${index}`"
           :variant="toggle_variant"
           @click="show_collapse_class(index)"
@@ -19,9 +17,9 @@
         </b-button>
       </b-card-header>
       <b-collapse :id="`accordion${index}`" visible accordion="my-accordion" role="tabpanel">
-        <b-card-body :class="append_class(index) ? 'active-accordion' : ''">
+        <b-card-body :class="append_class(index) ? 'active-accordion' : ''" class="p-3">
           <b-card-text>
-            <ac-collection-table
+            <ac-collection-table class="mb-0"
               :url="item_url"
               :total_count="item.count"
               :columns="columns"

@@ -174,7 +174,7 @@ const viewJson = {
     handler: '',
     type: 'is_active'
   }],
-  bulkOptions: [{ label: 'Active', name: 'Active', type: 'is_active', variant: 'outline-secondary is_active' }],
+  bulkOptions: [{ label: 'Active', name: 'Active', type: 'is_active', variant: 'white-20 btn-sm ml-2 rounded is_active' }],
   url: {
     postUrl: 'https://my.dev.500apps.io/v2/websites',
     putUrl: 'https://my.dev.500apps.io/v2/websites',
