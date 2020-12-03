@@ -222,7 +222,7 @@ export default {
       getDisplayableColumns(this.entity, fields, '_f')
         // eslint-disable-next-line no-unused-vars
         .then((res) => {
-          console.log('resss', res);
+          this.$set(this.formFields, 'fields', res);
           // Add custom validations for the fields
           getCustomValidations(this.fields);
           // Check the fields for the type and get designer json if required

@@ -9,7 +9,10 @@
         <div v-for="(value, key) in data" :key="key" :class="'mb-2 col-md-'+blockParams.cl">
           <b-card class="mb-0 shadow-none border-0" no-body>
              <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
-          </b-card>
+        <div v-for="(value, key) in data" :key="key" class="mb-2">
+          <b-card class="h-100 shadow-none border-0" no-body>
+             <SimpleCard @dropdownClick="dropdownClick" @bulkCheck="bulkCheck" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
+             </b-card>
         </div>
        </b-row>
       </template>
@@ -46,6 +49,9 @@ export default {
     },
     dropdownClick: function (data) {
       this.$emit('option_select', { item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index });
+    },
+    bulkCheck: function (data) {
+      this.$emit('check_value', data);
     },
   },
 };
