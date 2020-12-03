@@ -4,13 +4,15 @@ import modal from '../Appup Components/appup-modal'
 // Import AppupControls from '@appup/components';
 // Import Dynamic from '@appup/appup-components-dynamic';
 import { genericHandlers } from '../../genericshandlers';
-import crudJson from './crud'
+import crudJson from './crud';
+import BootstrapVue from 'bootstrap-vue';
 import moment from 'moment';
 import 'moment-timezone';
 window.moment = moment;
 const Dynamic = {};
 const AppupControls = {};
-// Vue.component('appup-modal', AppupControls['appup-modal']);
+Vue.component('appup-modal', modal);
+Vue.use(BootstrapVue);
 window.Vue = Vue;
 
 // Handlers
