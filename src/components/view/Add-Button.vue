@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ac-button-group :data="buttonJson" v-if='buttonJson.length>0' @click="buttonClick"></ac-button-group>
+    <b-button variant="primary" @click="buttonClick" v-if='buttonJson.length==1'>Add {{entity}}</b-button>
+    <ac-button-group :data="buttonJson" v-else-if='buttonJson.length>1' @click="buttonClick"></ac-button-group>
   </div>
 </template>
 <script>
@@ -50,7 +51,7 @@ export default {
 
   methods: {
     buttonClick: function (key) {
-      if (key.item.type) {
+      if ((key.item || {}).type) {
         this.getFields(key.item.type);
       } else {
         this.$emit('add_click');
