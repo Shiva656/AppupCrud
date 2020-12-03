@@ -6,10 +6,14 @@
 
 <script>
 import { getApp, getDisplayableColumns } from '../js/global';
+import AcSimpleFilter from '../Appup Components/ac-simple-filter'
 
 // Import { getCookie, parseJwt } from '../../js/tenant'
 
 export default {
+  components: {
+    'ac-simple-filter': AcSimpleFilter
+  },
   props: ['fields', 'entity', 'templateParams'],
   mounted () {
     console.log('iam in filter');

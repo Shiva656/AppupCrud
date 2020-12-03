@@ -95,7 +95,7 @@ const viewJson = {
     sk: 'name', // Search by
     ad: 't', // Add button
     nbn: '', // Form or form2
-    f: 't' // Simple filter
+    f: 'f' // Simple filter
   },
   fields: [{
     type: 'hidden',
