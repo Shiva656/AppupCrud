@@ -20,7 +20,7 @@ const viewJson = {
       block: 'v-accordion-card',
       blockParams: {
         gk: 'is_active',
-        c: '', // Card name
+        cl: '4', // Card name
         d: true,
         b: true
       }
@@ -95,7 +95,7 @@ const viewJson = {
     sk: 'name', // Search by
     ad: 't', // Add button
     nbn: '', // Form or form2
-    f: 'f' // Simple filter
+    f: 't' // Simple filter
   },
   fields: [{
     type: 'hidden',
@@ -139,6 +139,8 @@ const viewJson = {
     name: 'name',
     placeholder: 'Enter Name',
     _sf: true, // Simple filter
+    class: 'class',
+    inlineClass: 'inline',
     value: '',
     required: true,
     url: 'https://my.dev.500apps.io/v2/websites',

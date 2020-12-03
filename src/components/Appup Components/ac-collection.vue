@@ -581,11 +581,6 @@ export default {
 </script>
 
 <style>
-.ac__item {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .ac-collection {
   overflow-y: auto;
   overflow-x: hidden;

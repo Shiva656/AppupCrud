@@ -14,4 +14,19 @@ export default {
 <style>
 @import url("https://cdn-500.500apps.com/fontawesome/css/all.css");
 .dropdown-toggle::after{ display: none !important; }
+.card-header .input-group-merge>.form-control {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: transparent!important;
+    background-color: transparent!important;
+}
+.card-header .input-group-merge> .input-group-prepend .input-group-text {
+    padding: 0 !important;
+    border-width: 0 !important;
+    background-color: transparent !important;
+}
+td .custom-checkbox,
+th .custom-checkbox{
+  margin-left: 5px;
+}
 </style>

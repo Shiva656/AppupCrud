@@ -1,13 +1,17 @@
 <template>
   <div>
     <ac-collection-grouped-accordion v-if="url" :ref="componentName + '-ref'" :url="url" method="GET" :loading_image="collection.loadingImage" :ac_cursor="finalCondition" :group_key="blockParams.gk">
-      <template v-slot:group_accordion_label="{ groupItem }">{{ groupValue(groupItem) }}</template>
+      <template v-slot:group_accordion_label="{ groupItem }">
+        <h4 class="mb-0 mt-1">{{ groupValue(groupItem) }}</h4>
+        </template>
       <template v-slot:body="{ data }" class="item">
-        <div v-for="(value, key) in data" :key="key" class="mb-2">
-          <b-card class="h-100 shadow-none border-0" no-body>
-             <SimpleCard @dropdownClick="dropdownClick" @bulkCheck="bulkCheck" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
+        <b-row class="m-0 py-3">
+        <div v-for="(value, key) in data" :key="key" :class="'mb-2 col-md-'+blockParams.cl">
+          <b-card class="mb-0 shadow-none border-0" no-body>
+             <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
           </b-card>
         </div>
+       </b-row>
       </template>
     </ac-collection-grouped-accordion>
   </div>

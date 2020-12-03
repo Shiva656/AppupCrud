@@ -34,7 +34,7 @@
       -->
       <template #card_body="{ item }">
         <div class="card-body p-0 border-0">
-         <b-card  class="shadow-none border-0  mb-0">
+         <b-card  class="shadow-none border-0  mb-0" body-class="pt-0">
               <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
                   <div class="card-body p-0">
                       <!-- Body -->

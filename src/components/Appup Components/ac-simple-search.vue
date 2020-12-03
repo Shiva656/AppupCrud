@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-input-group class="input-group-flush input-group-merge">
-      <b-input-group-append
+    <b-input-group class=" input-group-merge">
+      <b-input-group-prepend
         is-text
         v-if="search_symbol"
         class="search-symbol cursor-pointer"
@@ -9,10 +9,10 @@
         :title="(show_tooltip)?tooltip_message:''"
       >
         <i class="fe fe-search" @click="onInput"></i>
-      </b-input-group-append>
-       <b-input-group-append v-else v-b-tooltip.hover :title="(show_tooltip)?tooltip_message:''">
+      </b-input-group-prepend>
+       <b-input-group-prepend v-else v-b-tooltip.hover :title="(show_tooltip)?tooltip_message:''">
         <b-button variant="outline-secondary" @click="onInput">search</b-button>
-      </b-input-group-append>
+      </b-input-group-prepend>
       <b-input
         v-model="searchValue"
         class="form-control-prepended search"

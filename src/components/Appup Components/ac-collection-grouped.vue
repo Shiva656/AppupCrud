@@ -350,9 +350,6 @@ export default {
 </script>
 
 <style>
-.ac__item {
-  flex-direction: column;
-}
 
 .loader {
   position: fixed;

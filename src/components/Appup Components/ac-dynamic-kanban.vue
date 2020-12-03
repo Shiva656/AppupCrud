@@ -21,7 +21,7 @@
                   <slot name="header" :headItem="stg"></slot>
               </div>
             </b-card-header>
-            <b-card-body>
+            <b-card-body class="kanban-height-control">
             <div class="scroll-area-css p-0">
               <ac-collection
                 ref="acCollections"
@@ -40,7 +40,6 @@
                 sort_key="name"
                 class="shadow-none border-0 mb-0 rounded-0"
                 v-if="stg.itemUrl"
-                :scroll_style="scroll_style"
               >
                 <template #body="{ data }">
                   <div

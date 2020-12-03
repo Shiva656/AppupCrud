@@ -24,7 +24,7 @@
       <div v-if="pagination_type !== 'deselect'">
         <slot name="caption" :loaded_data_count="loaded_data_count" :total_count="total_count"></slot>
       </div>
-      <b-table class="table-sm"
+      <b-table class="table-sm mb-0"
         outlined
         responsive
         :sticky-header="sticky_header == 'true' ? true : false"
