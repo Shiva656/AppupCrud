@@ -2,8 +2,8 @@
   <div>
     <div class="d-flex justify-content-between header-body mb-4">
       <div>
-        <h1 class="header-title mb-2">{{ entity }}</h1>
-        <h6 class="header-pretitle mb-0">header-pretitle</h6>
+        <h6 class="header-pretitle text-secondary mb-1">header-pretitle</h6>
+        <h1 class="header-title mb-0">{{ entity }}</h1>
       </div>
       <span class="d-flex"
         >  <CrudSimpleFilter :templateParams="templateParams"  v-if='templateParams.f==="t"' :entity="entity" :fields="fields"  @filter_form="filterForm">
@@ -13,19 +13,11 @@
         <!-- <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search> -->
         <div>
           <b-button-group class="ml-3 nav d-inline-flex">
-<<<<<<< HEAD
-          <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" v-for="item in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
+          <b-button v-b-tooltip.hover :id="item + '-id'" :class='index==0?"active":""' @click="toggle(item)" v-for="(item,index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
             <span class="fe fe-menu" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></span>
             <span class="fe fe-grid" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></span>
             <span class="fe fe-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></span>
             <span class="fe fe-list" v-if="item == 'v-kanban'"></span>
-=======
-          <b-button v-b-tooltip.hover :id="item + '-id'" @click="toggle(item)" :class='index==0?"active":""' v-for="(item,index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
-            <i class="far fa-bars" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></i>
-            <i class="fas fa-th-large" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></i>
-            <i class="fa fa-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></i>
-            <i class="far fa-th" v-if="item == 'v-kanban'"></i>
->>>>>>> 54bc28dcd6b459c26e6b2c9bbd084aa6080350d5
           </b-button>
           </b-button-group>
         </div>

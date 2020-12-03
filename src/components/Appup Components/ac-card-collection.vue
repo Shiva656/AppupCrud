@@ -40,21 +40,9 @@
           <b-row>
             <!-- <b-col v-for="(item,index) in data" :key="index" :class="response_class" :md="column_size"> -->
             <b-col v-for="(item,index) in actual_data" :key="index" :class="response_class">
-              <div class="card mb-0 card-head-bg w-100 card-header-flush" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
+              <div class="card mb-0 card-head-bg w-100" @click="card_click(item)" @dblclick="$emit('card-dbclick',item)">
                <div class="d-flex align-items-center card-header card-header-flush">
-                <slot name="option" :data="{item:item,index:index}">
-                  <ac-material-dropdown
-                    v-if="show_dropdown"
-                    :options="dropdown_options"
-                    :button_options="dropdown_button_options"
-                    :right="dropdown_button_options.right"
-                    :show_icon="show_dropdown_icons"
-                    @item_click="on_dropdown_item_click($event, item,index)"
-                    class="top"
-                  />
-                </slot>
-                <!-- Use this slot for each card header-->
-                <div class="d-flex">
+                <div><!-- Use this slot for each card header-->
                   <template v-if="bulk">
                     <b-form-checkbox
                       :class="checkbox_class"
@@ -65,6 +53,17 @@
                     ></b-form-checkbox>
                   </template>
                   <slot name="card_header" :item="item"></slot>
+                </div>
+                <div><slot name="option" :data="{item:item,index:index}">
+                  <ac-material-dropdown
+                    v-if="show_dropdown"
+                    :options="dropdown_options"
+                    :button_options="dropdown_button_options"
+                    :right="dropdown_button_options.right"
+                    :show_icon="show_dropdown_icons"
+                    @item_click="on_dropdown_item_click($event, item,index)"
+                  />
+                </slot>
                 </div>
                </div>
                 <!-- Use this slot for each card body-->
@@ -875,18 +874,5 @@ export default {
 </script>
 
 <style>
-.ac-card-collection .ac-material-dropdown {
-  position: absolute;
-  right: 8px;
-}
-.ac-card-collection .ac-material-dropdown.top {
-  top: 8px;
-}
-.ac-card-collection .ac-material-dropdown.bottom {
-  bottom: 8px;
-}
-.px-custom-card {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
+
 </style>

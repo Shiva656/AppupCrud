@@ -8,12 +8,16 @@
   >
     <!-- the following code removed in above tag
     -->
-    <b-card-title class="d-flex align-items-center justify-content-between h5">
-      <div
-        v-if="card_title && cardData[card_title]"
-        :title="cardData[card_title]"
-        class="ellipse"
-      >{{cardData[card_title]}}</div>
+    <b-card-title class="d-flex align-items-center justify-content-between">
+       <!-- If prop bulk is true, then show checkbox -->
+         <div v-if="bulk" class="ac-simple-card__checkbox ">
+      <!-- Event fires whenever the checkbox clicked. checkbox shown when bulk prop true.-->
+      <b-form-checkbox
+        v-model="checkbox"
+        :value="cardData.id"
+        @change="$emit('input', cardData.id)"
+      ></b-form-checkbox>
+        </div>
       <div v-if="dropdown_options && dropdown_options.length">
         <div class="text-right">
          <slot name="option" :data="cardData">
@@ -27,6 +31,11 @@
          </slot>
         </div>
       </div>
+       <div
+        v-if="card_title && cardData[card_title]"
+        :title="cardData[card_title]"
+        class="ellipse"
+      >{{cardData[card_title]}}</div>
     </b-card-title>
 
     <b-card-sub-title class="mb-0" v-if="card_subtitle">
@@ -51,16 +60,6 @@
       <slot name="body" :data="cardData">
         <b-card-text class="ac-simple-card__body py-2 pr-2">{{ cardData[card_text] }}</b-card-text>
       </slot>
-    </div>
-
-    <!-- If prop bulk is true, then show checkbox -->
-    <div v-if="bulk" class="ac-simple-card__checkbox mt-2">
-      <!-- Event fires whenever the checkbox clicked. checkbox shown when bulk prop true.-->
-      <b-form-checkbox
-        v-model="checkbox"
-        :value="cardData.id"
-        @change="$emit('input', cardData.id)"
-      ></b-form-checkbox>
     </div>
 
     <div v-if="footer_slot" slot="footer" class="ac-simple-card__footer">
@@ -330,7 +329,7 @@ export default {
   },
   computed: {
     inlineMethod () {
-      return this.card_class + ' ac-simple-card h-100 card-head-bg';
+      return this.card_class + ' ac-simple-card  card-head-bg mb-0';
     }
   },
   created () {

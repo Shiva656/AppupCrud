@@ -2,7 +2,7 @@
   <div>
     <ac-accordion-table
       :stages_url="blockParams.su"
-      toggle_variant="white"
+      toggle_variant="transparent"
       :append_key="blockParams.appendKey"
       :loading_image="collection.loadingImage"
       :columns="collection.columns"
@@ -21,9 +21,9 @@
       v-if="itemUrl"
     >
       <template #accordion_header="{ item }">
-        <div class="d-flex">
+        <div class="d-flex mt-1">
           <!-- <component v-if="accordionHheader" :is="accordionHheader" :item="item"></component> -->
-          <div class="float-left">{{ item['name'] }}</div>
+          <h4 class="float-left mb-0">{{ item['name'] }}</h4>
         </div>
       </template>
       <template #stages_empty_state>

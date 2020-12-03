@@ -11,7 +11,7 @@
     </header>
 
     <main class="ac__body container-fluid p-0">
-      <div v-for="(value, key) in actual_data" :key="key" class="ac__item card border mb-3 rounded">
+      <div v-for="(value, key) in actual_data" :key="key" class="ac__item card  mb-3 rounded">
         <div class="group-header">
           <!--  Use this slot group_header for each item in response -->
           <slot name="group_header" :group-item="value[0]"></slot>
@@ -19,10 +19,10 @@
 
         <div class="ac__item__body">
           <b-card-body class="p-0">
-            <div class="card-header px-3 bg-transparent">
+            <div class="card-header p-0">
               <b-button
                 block
-                class="text-left p-0"
+                class="text-left h-100"
                 variant="transparent"
                 v-b-toggle="`accordion${key+group_key+value[0][group_key]}`"
                 @click="show_collapse_class(key)"

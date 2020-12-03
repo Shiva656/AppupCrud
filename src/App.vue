@@ -13,4 +13,5 @@ export default {
 
 <style>
 @import url("https://cdn-500.500apps.com/fontawesome/css/all.css");
+.dropdown-toggle::after{ display: none !important; }
 </style>

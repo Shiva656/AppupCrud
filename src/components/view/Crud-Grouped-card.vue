@@ -19,12 +19,12 @@
       tooltip_message="search here ..."
     >
       <template v-slot:group_header="{ groupItem }">
-       <h4 class="mb-4">Group {{groupItem[blockParams.gk]}}</h4>
+       <h3 class="py-4 mb-0">Group {{groupItem[blockParams.gk]}}</h3>
       </template>
       <template v-slot:body="{ data }" class="item">
         <div class="row">
-          <div v-for="(value, key) in data" :key="key" :class="'col-md-' + cardClass + ' mb-4'">
-              <b-card  class="shadow-none border-0  mb-0">
+          <div v-for="(value, key) in data" :key="key" :class="'col-md-' + cardClass + ' mb-3 px-2'">
+              <b-card  class="shadow-none border-0 mb-0" no-body>
               <SimpleCard @dropdownClick="dropdownClick" :collection='collection' :blockParams='blockParams' :templateParams="templateParams"   :item="{ item: value, index: key }" :componentName="componentName"></SimpleCard>
             </b-card>
           </div>
