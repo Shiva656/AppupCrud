@@ -179,3 +179,66 @@ export default {
   }
 };
 </script>
+<style>
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td {
+    border-color: #e3ebf6 !important;
+}
+.fc-h-event.fc-event{
+padding: 12px 6px !important;
+}
+.fc-time-grid-event{
+    padding: 5px 6px !important;
+}
+.fc-h-event.fc-event,.fc-time-grid-event {
+    background-color: #f0f4ff;
+    border-left: 3px solid #6590f7 !important;
+    border: 0;
+    color: #3f4043 !important;
+    border-radius: 0px !important;
+}
+.fc-left .fc-button-group .fc-button.fc-button-primary {
+    background-color: transparent;
+    border-radius: 50% !important;
+    padding: 7px 0px;
+    margin-left: 10px;
+    border-color: #e3ebf6 !important;
+    color: #283e59 !important;
+}
+.fc-left .fc-button-group .fc-button.fc-button-primary .fc-icon {
+    top: -5px !important;
+}
+.fc-left .fc-button-group .fc-button.fc-button-primary:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+.fc-left .fc-today-button,
+.fc-right .fc-button.fc-button-primary {
+    color: #fff;
+    background-color: #6e84a3;
+    border: #6e84a3 !important;
+    text-transform: capitalize;
+        height: 30px !important;
+}.fc-left .fc-today-button.fc-button-active,
+.fc-right .fc-button.fc-button-primary.fc-button-active {
+    background-color:#5b6c84 !important;
+}
+.fc-day-grid .fc-row .fc-bg table tbody tr span {
+    display: none !important;
+}
+.fc-view-container .fc-body .fc-divider.fc-widget-header {
+  background: transparent;
+    border-color: transparent !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    border-style: initial;
+}
+</style>

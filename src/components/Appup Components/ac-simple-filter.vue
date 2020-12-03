@@ -14,6 +14,7 @@
       :form-json="formJson"
       ref="appupForm"
       :inline="inline"
+      class="mb-0"
       :inline-labels="inline_labels"
       v-model="modelJson"
       :form-data="modelJson"

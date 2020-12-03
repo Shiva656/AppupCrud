@@ -28,10 +28,10 @@
                 @click="show_collapse_class(key)"
               >
                 <span class="when-opened float-right text-muted">
-                  <i class="fas fa-chevron-up"></i>
+                  <i class="fe fe-chevron-up"></i>
                 </span>
                 <span class="when-closed float-right text-muted">
-                  <i class="fas fa-chevron-down"></i>
+                  <i class="fe fe-chevron-down"></i>
                 </span>
                 <!-- Use this slot group_accordian_label for each item in response -->
                 <slot name="group_accordion_label" :group-item="value[0]"></slot>
@@ -248,10 +248,6 @@ export default {
 </script>
 
 <style>
-.ac__item {
-  flex-direction: column;
-}
-
 .loader {
   position: fixed;
   display: flex;

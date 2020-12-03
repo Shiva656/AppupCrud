@@ -8,17 +8,16 @@
           @click="show_collapse_class(index)"
         >
           <span class="when-opened float-right text-muted">
-            <i class="fas fa-chevron-up"></i>
-          </span>
-          <span class="when-closed float-right text-muted">
-            <i class="fas fa-chevron-down"></i>
-          </span>
+                  <i class="fe fe-chevron-up"></i>
+                </span>
+                <span class="when-closed float-right text-muted">
+                  <i class="fe fe-chevron-down"></i>
+                </span>
           <slot name="accordion_header" :item="item">{{item.name}} ({{item.count}})</slot>
         </b-button>
       </b-card-header>
       <b-collapse :id="`accordion${index}`" visible accordion="my-accordion" role="tabpanel">
         <b-card-body :class="append_class(index) ? 'active-accordion' : ''" class="p-3">
-          <b-card-text>
             <ac-collection-table class="mb-0"
               :url="item_url"
               :total_count="item.count"
@@ -53,7 +52,6 @@
                 <slot name="items_empty_state"></slot>
               </template>
             </ac-collection-table>
-          </b-card-text>
         </b-card-body>
       </b-collapse>
     </b-card>

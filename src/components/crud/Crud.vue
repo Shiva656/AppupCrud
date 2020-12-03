@@ -12,7 +12,7 @@
  <Search :column="searchColumn"  v-if="!(componentParams.v==='table' || componentName.includes('table')) && templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
         <!-- <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search> -->
         <div>
-          <b-button-group class="ml-3 nav d-inline-flex">
+          <b-button-group class="ml-3 nav d-inline-flex button-group-control" >
           <b-button v-b-tooltip.hover :id="item + '-id'" :class='index==0?"active":""' @click="toggle(item)" v-for="(item,index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
             <span class="fe fe-menu" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></span>
             <span class="fe fe-grid" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></span>
@@ -21,7 +21,7 @@
           </b-button>
           </b-button-group>
         </div>
-        <AddButton v-bind="{ templateParams, entity }" @add_click="openModal" v-if="templateParams.ad === 't'"></AddButton>
+        <AddButton v-bind="{ templateParams, entity }" @add_click="openModal" v-if="templateParams.ad === 't'" class="ml-3"></AddButton>
       </span>
     </div>
     <CrudModal modal_id="crud-modal" v-bind="{ callbacks, templateParams, entity }" :form_key="formKey" :block_params="blockParams" :dynamic_label="dynamicLabel" :edit_value="passId" :re_renderkey="renderkey"> </CrudModal>
