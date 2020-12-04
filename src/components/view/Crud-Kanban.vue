@@ -7,7 +7,7 @@
         :dropdown_button_options="collection.buttonOptions"
         :bulk="blockParams.b ? true : false"
         show_dropdown_icons=true
-        :stage_url="blockParams.su"
+        :stage_url="stageUrl"
         :show_loadmore="showLoadmore"
         v-if="url"
         limit="5"
@@ -79,7 +79,7 @@ export default {
       dropdown: 'f',
       kanbanFlag: false,
       showLoadmore: true,
-      stageUrl: '',
+      stageUrl: this.blockParams.su,
       appName: '',
       url: '',
       dataCountUrl: '',
@@ -132,6 +132,10 @@ export default {
       } else {
         // eslint-disable-next-line no-template-curly-in-string
         this.url = this.blockParams.iu + '?where=' + this.blockParams.ik + '=%27${id}%27';
+      }
+      /** AppendFilter is used to append where clause to stage url  */
+      if (this.blockParams.appendFilter) {
+        this.stageUrl = this.blockParams.su + ((after || {}).where ? ('&where=' + after.where) : '')
       }
     },
     dropdownClick: function (data) {

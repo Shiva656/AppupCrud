@@ -1,7 +1,7 @@
 <template>
   <div>
     <ac-accordion-table
-      :stages_url="blockParams.su"
+      :stages_url="stageUrl"
       toggle_variant="transparent"
       :append_key="blockParams.appendKey"
       :loading_image="collection.loadingImage"
@@ -53,7 +53,7 @@ export default {
       columns: [],
       columnKey: '',
       slideout: 'f',
-      stagesUrl: '',
+      stageUrl: this.blockParams.su,
       itemUrl: '',
       acCursor: {
       },
@@ -82,6 +82,10 @@ export default {
       }
     },
     getUrl: function (after, enable) {
+      /** AppendFilter is used to append where clause to stage url  */
+      if (this.blockParams.appendFilter) {
+        this.stageUrl = this.blockParams.su + ((after || {}).where ? ('&where=' + after.where) : '')
+      }
       this.itemUrl = this.blockParams.iu;
       let obj = {};
       // eslint-disable-next-line no-template-curly-in-string
