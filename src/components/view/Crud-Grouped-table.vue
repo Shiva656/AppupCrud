@@ -22,7 +22,7 @@
       @dropdown_click="dropdownClick"
     >
       <template v-slot:group_header="{ groupItem }">
-        <h5 class="py-1 mb-0 text-capitalize">{{ groupItem[blockParams.gk] }}</h5>
+        <h5 class="py-1 ml-2 mb-0 text-capitalize">{{ groupItem[blockParams.gk] }}</h5>
       </template>
       <template #emptyState>
         <p><center>No Data</center></p>

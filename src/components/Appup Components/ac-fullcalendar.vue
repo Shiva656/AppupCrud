@@ -190,8 +190,9 @@ export default {
 .fc-unthemed .fc-popover,
 .fc-unthemed .fc-list-view,
 .fc-unthemed .fc-list-heading td {
-    border-color: #e3ebf6 !important;
+    border-color: #e9f2ff!important;
 }
+
 .fc-h-event.fc-event{
 padding: 12px 6px !important;
 }
@@ -204,6 +205,13 @@ padding: 12px 6px !important;
     border: 0;
     color: #3f4043 !important;
     border-radius: 0px !important;
+}
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-popover .fc-header,
+.fc-unthemed .fc-list-heading td {
+    background: transparent;
+    border: 0px;
+    padding: 0px;
 }
 .fc-left .fc-button-group .fc-button.fc-button-primary {
     background-color: transparent;
@@ -220,25 +228,24 @@ padding: 12px 6px !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
+.fc-right .fc-button.fc-button-primary:first-child{
+  margin-left: 0px !important;
+}
 .fc-left .fc-today-button,
 .fc-right .fc-button.fc-button-primary {
-    color: #fff;
-    background-color: #6e84a3;
-    border: #6e84a3 !important;
+       color: #283e59 !important;
+    background-color: #edf2f9 !important;
+    border-color: #edf2f9 !important;
     text-transform: capitalize;
         height: 30px !important;
 }.fc-left .fc-today-button.fc-button-active,
 .fc-right .fc-button.fc-button-primary.fc-button-active {
-    background-color:#5b6c84 !important;
+  background-color: #c7d6ec !important;
+    border-color: #bdcfe9 !important;
 }
 .fc-day-grid .fc-row .fc-bg table tbody tr span {
     display: none !important;
-}
-.fc-view-container .fc-body .fc-divider.fc-widget-header {
-  background: transparent;
-    border-color: transparent !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    border-style: initial;
+}.fc-left .fc-button-group .fc-button.fc-button-primary:first-child{
+  margin-left:0px !important;
 }
 </style>

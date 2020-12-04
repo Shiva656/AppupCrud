@@ -29,4 +29,11 @@ td .custom-checkbox,
 th .custom-checkbox{
   margin-left: 5px;
 }
+.header-body .form-group {
+    margin: 0px !important;
+}
+.header-body .form-group .dropdown-toggle{
+  padding: 0px !important;
+  border: 0px !important;
+}
 </style>
