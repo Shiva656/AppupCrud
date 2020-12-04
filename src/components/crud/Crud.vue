@@ -6,10 +6,9 @@
         <h1 class="header-title mb-0">{{ entity }}</h1>
       </div>
       <span class="d-flex"
-        >  <CrudSimpleFilter :templateParams="templateParams"  v-if='templateParams.f==="t"' :entity="entity" :fields="fields"  @filter_form="filterForm">
-
+        >  <CrudSimpleFilter class="ml-3" :templateParams="templateParams"  v-if='templateParams.f==="t"' :entity="entity" :fields="fields"  @filter_form="filterForm">
         </CrudSimpleFilter>
- <Search :column="searchColumn"  v-if="!(componentParams.v==='table' || componentName.includes('table')) && templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
+ <Search :column="searchColumn" class="ml-3"  v-if="!(componentParams.v==='table' || componentName.includes('table')) && templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
         <!-- <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search> -->
         <div>
           <b-button-group class="ml-3 nav d-inline-flex button-group-control" >
