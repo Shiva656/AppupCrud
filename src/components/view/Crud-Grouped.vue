@@ -4,7 +4,7 @@
     <ac-grouped-view
       :view="blockParams.v"
       :ref="componentName+'-ref'"
-      :stage_url="blockParams.su"
+      :stage_url="stageUrl"
       :item_url="itemUrl"
       :stage_append_key="blockParams.sk?blockParams.sk:'id'"
       :item_append_key="blockParams.ik"
@@ -74,6 +74,7 @@ export default {
   data () {
     return {
       dataCountUrl: '',
+      stageUrl: this.blockParams.su,
       totalCount: this.t_count,
       itemUrl: '',
       acCursor: { order_by: this.finalCondition.order_by },
@@ -93,6 +94,10 @@ export default {
   },
   methods: {
     getUrl: function (after, enable) {
+      /** AppendFilter is used to append where clause to stage url  */
+      if (this.blockParams.appendFilter) {
+        this.stageUrl = this.blockParams.su + ((after || {}).where ? ('&where=' + after.where) : '')
+      }
       if (after.where) {
         // eslint-disable-next-line no-template-curly-in-string
         this.itemUrl = this.blockParams.iu + '?where=' + this.blockParams.ik + '=${id} and' + after.where;
