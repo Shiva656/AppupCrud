@@ -5,19 +5,18 @@
         <h6 class="header-pretitle text-secondary mb-1">header-pretitle</h6>
         <h1 class="header-title mb-0">{{ entity }}</h1>
       </div>
-      <span class="d-flex"
-        >  <CrudSimpleFilter class="ml-3" :templateParams="templateParams"  v-if='templateParams.f==="t"' :entity="entity" :fields="fields"  @filter_form="filterForm">
-        </CrudSimpleFilter>
- <Search :column="searchColumn" class="ml-3"  v-if="!(componentParams.v==='table' || componentName.includes('table')) && templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
+      <span class="d-flex">
+        <CrudSimpleFilter class="ml-3" :templateParams="templateParams" v-if="templateParams.f === 't'" :entity="entity" :fields="fields" @filter_form="filterForm"> </CrudSimpleFilter>
+        <Search :column="searchColumn"  ref="crudSearchRef"  class="ml-3" v-if="!(componentParams.v === 'table' || componentName.includes('table')) && templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search>
         <!-- <Search :column="searchColumn" v-if="templateParams.s === 't'" :entity="entity" @search_value="filterSearch"></Search> -->
         <div>
-          <b-button-group class="ml-3 nav d-inline-flex button-group-control" >
-          <b-button v-b-tooltip.hover :id="item + '-id'" :class='index==0?"active":""' @click="toggle(item)" v-for="(item,index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
-            <span class="fe fe-menu" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></span>
-            <span class="fe fe-grid" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></span>
-            <span class="fe fe-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></span>
-            <span class="fe fe-list" v-if="item == 'v-kanban'"></span>
-          </b-button>
+          <b-button-group class="ml-3 nav d-inline-flex button-group-control">
+            <b-button v-b-tooltip.hover :id="item + '-id'" :class="index == 0 ? 'active' : ''" @click="toggle(item)" v-for="(item, index) in blocks" :v-if="blocks.length > 1" v-bind:key="item" variant="white">
+              <span class="fe fe-menu" aria-hidden="true" v-if="item == 'v-table' || item == 'v-grouped-table' || item == 'v-grouped' || item == 'v-sheet' || item == 'v-accordion-table'"></span>
+              <span class="fe fe-grid" aria-hidden="true" v-if="item == 'v-cards' || item == 'v-grouped-card' || item == 'v-accordion-card'"></span>
+              <span class="fe fe-calendar" aria-hidden="true" v-if="item == 'v-calendar'"></span>
+              <span class="fe fe-list" v-if="item == 'v-kanban'"></span>
+            </b-button>
           </b-button-group>
         </div>
         <AddButton v-bind="{ templateParams, entity }" @add_click="openModal" v-if="templateParams.ad === 't'" class="ml-3"></AddButton>
@@ -26,28 +25,28 @@
     <CrudModal modal_id="crud-modal" v-bind="{ callbacks, templateParams, entity }" :form_key="formKey" :block_params="blockParams" :dynamic_label="dynamicLabel" :edit_value="passId" :re_renderkey="renderkey"> </CrudModal>
     <div>
       <CrudBulk v-if="count.length > 0" v-bind="{ componentRef, count, templateParams, entity, callbacks, bulkOptions }"></CrudBulk>
-<b-card body-class="p-0" class="bg-transparent border-0 shadow-none">
-        <b-card-header class="bg-white border-bottom-0" v-if="(componentParams.v==='table' || componentName.includes('table')) && templateParams.s === 't'">
-          <Search :column="searchColumn"   :entity="entity" @search_value="filterSearch"></Search>
+      <b-card body-class="p-0" class="bg-transparent border-0 shadow-none">
+        <b-card-header class="bg-white border-bottom-0" v-if="(componentParams.v === 'table' || componentName.includes('table')) && templateParams.s === 't'">
+          <Search :column="searchColumn" ref="crudSearchRef" :entity="entity" @search_value="filterSearch"></Search>
         </b-card-header>
-      <component
-        ref="view_component_ref"
-        @option_select="optionSelected"
-        @check_value="bulkSelected"
-        check_value
-        :is="componentName"
-        v-bind="{
-          finalCondition,
-          componentName,
-          collection,
-          blockParams: componentParams,
-          templateParams,
-          entity,
-          callbacks,
-        }"
-      >
-      </component>
-</b-card>
+        <component
+          ref="view_component_ref"
+          @option_select="optionSelected"
+          @check_value="bulkSelected"
+          check_value
+          :is="componentName"
+          v-bind="{
+            finalCondition,
+            componentName,
+            collection,
+            blockParams: componentParams,
+            templateParams,
+            entity,
+            callbacks,
+          }"
+        >
+        </component>
+      </b-card>
     </div>
   </div>
 </template>
@@ -87,6 +86,7 @@ export default {
       searchKey: '',
       getUrl: '',
       verticalKey: '',
+      searchValue: '',
       filterKey: '',
       previousId: '',
       count: 0,
@@ -127,11 +127,17 @@ export default {
       }
       this.previousId = value;
       this.bulkHide();
+      if (this.$refs.crudSearchRef) {
+        setTimeout(() => {
+          this.$refs.crudSearchRef.$refs.searchRef.searchValue = this.searchValue;
+        }, 8)
+      }
     },
     /*
      * When we kepup or click on enter after entering the text in the search field.
      */
-    filterSearch: function (value) {
+    filterSearch: function (value, text) {
+      this.searchValue = text;
       this.searchKey = value;
       this.filter();
     },
@@ -144,7 +150,7 @@ export default {
     },
     /** It will do filter on collection */
     filter: function () {
-      console.log('filter')
+      console.log('filter');
       const defaultObj = {};
       const obj = {};
       defaultObj.l = this.templateParams.lm;
@@ -289,7 +295,9 @@ export default {
             // Pagination status
             this.$refs.view_component_ref.$refs[this.componentRef].pagination_status[z.id] = { offset: 0, page_number: 0 };
           }
-          if (z) { obj.unshift(z); }
+          if (z) {
+            obj.unshift(z);
+          }
         });
         this.$set(this.$refs.view_component_ref.$refs[this.componentRef], 'stages', obj);
       } else if (this.componentRef === 'v-accordion-table-ref') {
@@ -302,7 +310,7 @@ export default {
             });
             if (ind >= 0) {
               this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data[ind] = i;
-              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data]
+              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data];
             }
           });
         });
@@ -382,7 +390,7 @@ export default {
             });
             if (ind >= 0) {
               this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data[ind] = i;
-              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data]
+              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data];
             }
           });
         });
@@ -447,7 +455,7 @@ export default {
             });
             if (ind >= 0) {
               this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data.splice(ind, 1);
-              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data]
+              this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data = [...this.$refs.view_component_ref.$refs[this.componentRef].$refs['accordion' + s.id][0].actual_data];
             }
           });
         });

@@ -100,7 +100,7 @@ export default {
       }
       if (after.where) {
         // eslint-disable-next-line no-template-curly-in-string
-        this.itemUrl = this.blockParams.iu + '?where=' + this.blockParams.ik + '=${id} and' + after.where;
+        this.itemUrl = this.blockParams.iu + '?where=' + this.blockParams.ik + '=${id} and ' + after.where;
       } else {
         // eslint-disable-next-line no-template-curly-in-string
         this.itemUrl = this.blockParams.iu + '?where=' + this.blockParams.ik + '=${id}';
