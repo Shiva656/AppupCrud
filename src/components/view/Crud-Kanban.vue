@@ -128,7 +128,7 @@ export default {
     getUrl: function (after) {
       if (after.where) {
         // eslint-disable-next-line no-template-curly-in-string
-        this.url = this.blockParams.iu + '?where=' + this.blockParams.ik + '=%27${id}%27 and' + after.where;
+        this.url = this.blockParams.iu + '?where=' + this.blockParams.ik + '=%27${id}%27 and ' + after.where;
       } else {
         // eslint-disable-next-line no-template-curly-in-string
         this.url = this.blockParams.iu + '?where=' + this.blockParams.ik + '=%27${id}%27';

@@ -37,7 +37,7 @@ export default {
             key = `${key}${i === 0 ? '' : ' or '}${columnKey[i]} like '%25${value}%25'`;
           }
         }
-        this.$emit('search_value', `${key.length > 0 ? `(${key})` : `${key}`}`);
+        this.$emit('search_value', `${key.length > 0 ? `(${key})` : `${key}`}`, value);
       }
     },
     getLabels: function () {
