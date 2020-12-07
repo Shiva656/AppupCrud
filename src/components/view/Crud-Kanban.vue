@@ -53,6 +53,9 @@
             <p></p>
           </div>
         </template>
+        <template slot="option" slot-scope="data">
+        <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+        </template>
         <p slot="empty_state">This is empty state slot</p>
       </ac-dynamic-kanban>
     </div>
@@ -60,11 +63,15 @@
 </template>
 <script>
 import kanban from '../Appup Components/ac-dynamic-kanban';
+import { crudMixin } from '../../mixins/crud';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
 
 export default {
   components: {
-    'ac-dynamic-kanban': kanban
+    'ac-dynamic-kanban': kanban,
+    'ac-material-dropdown': MaterialDropdown,
   },
+  mixins: [crudMixin],
   props: ['entity', 'finalCondition', 'templateParams', 'blockParams', 'componentName', 'collection'],
   data () {
     return {

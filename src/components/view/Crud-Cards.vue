@@ -11,9 +11,7 @@
       :show_pagination="true"
       :loading_image="collection.loadingImage"
       :ac_cursor="finalCondition"
-      :responsive_class="
-        'col-lg-' + classKey + ' col-md-' + classKey + ' col-xl-' + classKey + ' col-xs-12 col-sm-12 px-2'
-      "
+      :responsive_class="'col-lg-' + classKey + ' col-md-' + classKey + ' col-xl-' + classKey + ' col-xs-12 col-sm-12 px-2'"
       :limit="finalCondition.l"
       offset_key="offset"
       limit_key="l"
@@ -34,19 +32,16 @@
       -->
       <template #card_body="{ item }">
         <div class="card-body p-0 border-0">
-         <b-card  class="shadow-none border-0  mb-0" body-class="pt-0">
-              <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
-                  <div class="card-body p-0">
-                      <!-- Body -->
-                      <p class="mt-3">
-                          Finish the design for blog listings and articles, including mixed media
-                      </p>
-                      <p class="card-text small text-muted d-flex align-items-center">
-                          <i class="fe fe-message-circle mr-2"></i> {{ item.name }}
-                          <i class="fe fe-clock ml-4 mr-2"></i> Sep 9
-                      </p>
-                  </div>
-                </b-card>
+          <b-card class="shadow-none border-0  mb-0" body-class="pt-0">
+            <b-img src="https://dashkit.goodthemes.co/assets/img/kanban/kanban-2.jpg" alt="..." class="card-img-top" />
+            <div class="card-body p-0">
+              <!-- Body -->
+              <p class="mt-3">
+                Finish the design for blog listings and articles, including mixed media
+              </p>
+              <p class="card-text small text-muted d-flex align-items-center"><i class="fe fe-message-circle mr-2"></i> {{ item.name }} <i class="fe fe-clock ml-4 mr-2"></i> Sep 9</p>
+            </div>
+          </b-card>
           <!-- <component :is="componentName" :item="item" :appName="appName" :portal_users='portal_users' :entity="b_entity"></component> -->
         </div>
       </template>
@@ -54,42 +49,24 @@
         <p  @click="emptyStateClcik($event)" v-html="empty_state"></p>
       </template> -->
 
-      <!-- <template v-if="optionsSlot && blockParams.d == 't'" slot="option" slot-scope="data">
-        <v-material-dropdown
-          class="top"
-          :data="data"
-          :options="tableData.options"
-          :app="appName"
-          :template_params="template_params"
-          :b_entity="b_entity"
-          @dropdown_click="dropdownClick"
-        ></v-material-dropdown>
-      </template> -->
+      <template slot="option" slot-scope="data">
+        <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+      </template>
     </ac-card-collection>
   </div>
 </template>
 <script>
 import { getData } from '../js/global';
+import { crudMixin } from '../../mixins/crud';
 import cardComponent from '../Appup Components/ac-card-collection';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
 export default {
   components: {
     'ac-card-collection': cardComponent,
+    'ac-material-dropdown': MaterialDropdown,
   },
-  props: [
-    'componentName',
-    'tableData',
-    'collection',
-    'finalCondition',
-    'component_ref',
-    'b_entity',
-    'c_name',
-    't_count',
-    'filter_count',
-    'empty_state',
-    'template_params',
-    'blockParams',
-    'component_data',
-  ],
+  mixins: [crudMixin],
+  props: ['componentName', 'tableData', 'collection', 'finalCondition', 'component_ref', 'b_entity', 'c_name', 't_count', 'filter_count', 'empty_state', 'template_params', 'blockParams', 'component_data'],
   data () {
     return {
       staticData: [],
@@ -115,8 +92,8 @@ export default {
     };
   },
   mounted () {
-    console.log('cards')
-    getData(this.entity).then((url) => {
+    console.log('cards');
+    getData(this.entity).then(url => {
       this.url = url;
     });
 
@@ -145,6 +122,6 @@ export default {
         this.$emit('add_row', '');
       }
     },
-  }
+  },
 };
 </script>

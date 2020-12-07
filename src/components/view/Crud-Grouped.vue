@@ -59,17 +59,23 @@
         <component :is="block.slot" :componentRef='component_ref' :entity='entity' :blockParams='blockParams' :templateParams='template_params' :item="data.item" :key_value="block.key" v-if="block.slot && block.slot != '0'" :key="block"></component>
         <template v-else>{{ data.item[block.key] }}</template>
       </template> -->
-
+       <template slot="option" slot-scope="data">
+        <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+      </template>
     </ac-grouped-view>
     </b-card>
   </div>
 </template>
 <script>
-import GroupedView from '../Appup Components/ac-grouped-view'
+import GroupedView from '../Appup Components/ac-grouped-view';
+import { crudMixin } from '../../mixins/crud';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
 export default {
   components: {
     'ac-grouped-view': GroupedView,
+    'ac-material-dropdown': MaterialDropdown,
   },
+  mixins: [crudMixin],
   props: ['entity', 'finalCondition', 'templateParams', 'blockParams', 'componentName', 'collection'],
   data () {
     return {

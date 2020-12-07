@@ -1,66 +1,65 @@
 <template>
   <div>
     <b-card class="border-0 rounded-0" body-class="p-0">
-    <ac-collection-table class="test"
-      :ref="componentName + '-ref'"
-      :bulk="blockParams.b ? true : false"
-      :dropdown="blockParams.d ? true : false"
-      :dropdown_options="collection.dropdownOptions"
-      :dropdown_button_options="collection.buttonOptions"
-      :columns="collection.columns"
-      :url="url"
-      header_class='c'
-      v-if="url"
-      method="GET"
-      :limit="templateParams.lm"
-      limit_key="l"
-      :isLoading="true"
-      offset_key="offset"
-      pagination_type="scroll"
-      load_more_type="infiniScroll"
-      :scroll_style="scrollClass"
-      show_pagination="true"
-      :sticky_header="stickyHeader"
-      :loading_image="collection.loadingImage"
-      :data_count_url="dataCountUrl"
-      :total_count="totalCount || totalCount === 0 ? totalCount : loadmoreCount"
-      count_key="count"
-      :ac_cursor="finalCondition"
-      @selected_checkbox="bulkCheck"
-      @row_clicked="rowClick"
-      @row-dblclicked="rowDoubleClick"
-      @dropdown_click="dropdownClick"
-      :static_data="staticData"
-    >
-      <template #empty_state>
-        <p @click="emptyStateClcik($event)" v-html="empty_state"></p>
-      </template>
-      <!-- <template :slot='block.key' slot-scope="data" v-for="block in tableData.columnSlot">
+      <ac-collection-table
+        class="test"
+        :ref="componentName + '-ref'"
+        :bulk="blockParams.b ? true : false"
+        :dropdown="blockParams.d ? true : false"
+        :dropdown_options="collection.dropdownOptions"
+        :dropdown_button_options="collection.buttonOptions"
+        :columns="collection.columns"
+        :url="url"
+        header_class="c"
+        v-if="url"
+        method="GET"
+        :limit="templateParams.lm"
+        limit_key="l"
+        :isLoading="true"
+        offset_key="offset"
+        pagination_type="scroll"
+        load_more_type="infiniScroll"
+        :scroll_style="scrollClass"
+        show_pagination="true"
+        :sticky_header="stickyHeader"
+        :loading_image="collection.loadingImage"
+        :data_count_url="dataCountUrl"
+        :total_count="totalCount || totalCount === 0 ? totalCount : loadmoreCount"
+        count_key="count"
+        :ac_cursor="finalCondition"
+        @selected_checkbox="bulkCheck"
+        @row_clicked="rowClick"
+        @row-dblclicked="rowDoubleClick"
+        @dropdown_click="dropdownClick"
+        :static_data="staticData"
+      >
+        <template #empty_state>
+          <p @click="emptyStateClcik($event)" v-html="empty_state"></p>
+        </template>
+        <!-- <template :slot='block.key' slot-scope="data" v-for="block in tableData.columnSlot">
           <component :is='block.slot'  :item="data.item" :key_value="block.key" :componentRef='component_ref' :entity='b_entity' :blockParams='blockParams' :templateParams='template_params' v-if='block.slot && block.slot!="0"' :key='block'></component>
           <template v-else>{{data.item[block.key]}}</template>
         </template> -->
-    </ac-collection-table>
+
+        <template slot="option" slot-scope="data">
+          <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+        </template>
+      </ac-collection-table>
     </b-card>
   </div>
 </template>
 <script>
 import { getData } from '../js/global';
+import { crudMixin } from '../../mixins/crud';
 import CollectionTable from '../Appup Components/ac-collection-table';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
 export default {
   components: {
     'ac-collection-table': CollectionTable,
+    'ac-material-dropdown': MaterialDropdown,
   },
-  props: [
-    'entity',
-    'collection',
-    'componentName',
-    'finalCondition',
-    'empty_state',
-    't_count',
-    'templateParams',
-    'blockParams',
-    'component_data',
-  ],
+  mixins: [crudMixin],
+  props: ['entity', 'collection', 'componentName', 'finalCondition', 'empty_state', 't_count', 'templateParams', 'blockParams', 'component_data'],
   data () {
     return {
       isLoading: this.is_loading,
@@ -86,7 +85,7 @@ export default {
   },
   mounted () {
     console.log('iam in table');
-    getData(this.entity).then((url) => {
+    getData(this.entity).then(url => {
       this.url = url;
     });
   },
