@@ -27,6 +27,9 @@
       <template #emptyState>
         <p><center>No Data</center></p>
       </template>
+      <template slot="option" slot-scope="data">
+        <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+      </template>
     </ac-collection-grouped-table>
     </b-card>
   </div>
@@ -34,10 +37,14 @@
 <script>
 import { getData } from '../js/global';
 import GroupedTable from '../Appup Components/ac-collection-grouped-table';
+import { crudMixin } from '../../mixins/crud';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
 export default {
   components: {
-    'ac-collection-grouped-table': GroupedTable
+    'ac-collection-grouped-table': GroupedTable,
+    'ac-material-dropdown': MaterialDropdown,
   },
+  mixins: [crudMixin],
   props: ['entity', 'finalCondition', 'templateParams', 'blockParams', 'componentName', 'collection'],
   data: function () {
     return {
