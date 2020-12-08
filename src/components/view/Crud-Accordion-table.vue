@@ -105,7 +105,7 @@ export default {
       }
     },
     dropdownClick: function (data) {
-      this.$emit('option_select', { item: data.item, type: data.type });
+      this.$emit('option_select', { ...data, ...{ item: data.item, type: data.type } });
     },
     bulkCheck: function (data) {
       this.$emit('check_value', data);

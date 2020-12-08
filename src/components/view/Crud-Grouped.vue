@@ -124,7 +124,7 @@ export default {
       }
     },
     dropdownClick: function (data) {
-      this.$emit('option_select', { item: data.item, type: data.type, index: data.index });
+      this.$emit('option_select', { ...data, ...{ item: data.item, type: data.type, index: data.index } });
     }
   }
 };
