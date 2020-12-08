@@ -29,7 +29,9 @@
       <template #stages_empty_state>
         <p @click="emptyStateClcik($event)" v-html="empty_state"></p>
       </template>
-
+      <template slot='option' slot-scope="data">
+        <ac-material-dropdown :button_options="collection.buttonOptions" :options="dropdownJson(data.data.item)" right="true" @item_click="dropdownClick" show_icon="true"></ac-material-dropdown>
+      </template>
       <!-- <template :slot="block.key" slot-scope="data" v-for="block in tableData.columnSlot">
         <component :is="block.slot" :componentRef='component_ref' :entity='b_entity' :blockParams='blockParams' :templateParams='templateParams' :item="data.item" :key_value="block.key" v-if="block.slot && block.slot != '0'" :key="block"></component>
         <template v-else>{{ data.item[block.key] }}</template>
@@ -40,10 +42,15 @@
 <script>
 // Import { getData } from '../js/global';
 import AccordionTable from '../Appup Components/ac-accordion-table';
+import MaterialDropdown from '../Appup Components/ac-material-dropdown';
+import { crudMixin } from '../../mixins/crud';
 export default {
   components: {
     'ac-accordion-table': AccordionTable,
+    'ac-material-dropdown': MaterialDropdown,
+
   },
+  mixins: [crudMixin],
   props: ['entity', 'finalCondition', 'templateParams', 'blockParams', 'componentName', 'collection'],
   data () {
     return {

@@ -47,7 +47,9 @@
               >
                 <slot :name="dropdown.key" :item="item.item"></slot>
               </template>
-
+              <template slot='option' slot-scope="actual_data">
+                <slot name='option' :data="actual_data.data"></slot>
+              </template>
               <template #empty_state>
                 <slot name="items_empty_state"></slot>
               </template>
