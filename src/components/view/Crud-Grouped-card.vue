@@ -75,7 +75,7 @@ export default {
 
   methods: {
     dropdownClick: function (data) {
-      this.$emit('option_select', { item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index, option: data.option });
+      this.$emit('option_select', { ...data, ...{ item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index, option: data.option } });
     },
     bulkCheck: function (data) {
       this.$emit('check_value', data);

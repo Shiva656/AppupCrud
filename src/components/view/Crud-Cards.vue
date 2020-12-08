@@ -102,7 +102,7 @@ export default {
 
   methods: {
     dropdownClick: function (data) {
-      this.$emit('option_select', { item: data.item, option: data.option, index: data.index, type: data.type });
+      this.$emit('option_select', { ...data, ...{ item: data.item, option: data.option, index: data.index, type: data.type } });
     },
     bulkCheck: function (data) {
       this.$emit('check_value', data);

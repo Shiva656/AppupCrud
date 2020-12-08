@@ -45,7 +45,7 @@ export default {
       return key[this.blockParams.gk];
     },
     dropdownClick: function (data) {
-      this.$emit('option_select', { item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index });
+      this.$emit('option_select', { ...data, ...{ item: data.item.item ? data.item.item : data.item, type: data.type, index: data.index } });
     },
     bulkCheck: function (data) {
       this.$emit('check_value', data);
