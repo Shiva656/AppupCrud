@@ -417,10 +417,10 @@ export default {
       if (!(this.block_params || {}).id) {
         this.form = null;
         const form = {};
-        if ((((window.fcf || {})[this.appName] || {})[this.entity] || {}).preload) {
+        if ((this.callbacks || {}).preload) {
           try {
             // eslint-disable-next-line no-eval
-            var fn = eval(window.fcf[this.appName][this.entity].preload);
+            var fn = eval((this.callbacks || {}).preload);
             const data = fn(this.formFields.fields, this);
             this.formFields.fields = data || this.formFields.fields;
             // eslint-disable-next-line no-empty
@@ -481,10 +481,10 @@ export default {
             return i;
           });
           // Callback functions for preload
-          if ((((window.fcf || {})[this.appName] || {})[this.entity] || {}).edit_preload) {
+          if ((this.callbacks || {}).edit_preload) {
             try {
               // eslint-disable-next-line no-eval
-              var fn = eval(window.fcf[this.appName][this.entity].edit_preload);
+              var fn = eval((this.callbacks || {}).edit_preload);
               const data = fn(prefillData, this);
               form = data || form;
               // eslint-disable-next-line no-empty
